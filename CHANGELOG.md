@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/Emmraan/build-3000/compare/v1.1.1...v1.2.0) (2026-08-25)
+
+
+### Features
+
+* thin themed scrollbars, readme brand mark, enforced pre-push rebase ([c4570a8](https://github.com/Emmraan/build-3000/commit/c4570a8fc4a084721fe21e42ae56ae5412040af8))
+
 ## [1.1.1](https://github.com/Emmraan/build-3000/compare/v1.1.0...v1.1.1) (2026-08-25)
 
 
