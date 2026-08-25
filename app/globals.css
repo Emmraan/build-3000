@@ -132,6 +132,33 @@
   mark {
     background-color: transparent;
   }
+
+  /* Thin, quiet scrollbars everywhere: invisible track, token-colored
+     thumb only. Firefox via scrollbar-width/color; WebKit below. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in srgb, var(--muted-foreground) 55%, transparent)
+      transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: color-mix(in srgb, var(--muted-foreground) 55%, transparent);
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: color-mix(in srgb, var(--muted-foreground) 80%, transparent);
+  }
 }
 
 /* Highlighter-pen mark: the signature detail. Key vocabulary looks like it

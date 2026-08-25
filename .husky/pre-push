@@ -1,0 +1,13 @@
+# Enforce pull-before-push: if the semantic-release bot (or anyone else)
+# landed commits on the remote, bring them down and rebase local work on top
+# BEFORE pushing. A failed rebase aborts the push.
+branch="$(git rev-parse --abbrev-ref HEAD)"
+echo "pre-push: pulling origin/$branch with rebase..."
+if ! git pull --rebase origin "$branch"; then
+  echo ""
+  echo "pre-push: rebase against origin/$branch failed."
+  echo "Resolve the conflicts, then retry your push:"
+  echo "  git rebase --continue   # after fixing conflicts"
+  echo "  git push"
+  exit 1
+fi

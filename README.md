@@ -1,4 +1,7 @@
-# build-3000
+<h1>
+  <img src="app/icon.svg" alt="build-3000 mark" width="36" align="top" />
+  build-3000
+</h1>
 
 > The essential concepts for building software with AI coding agents.
 
@@ -16,9 +19,9 @@ specify, delegate, inspect, verify, secure, ship.
 
 ## What this is
 
-- **Six-level ladder** from Foundations to AI-Native applications. Levels 0-2
-  are fully written; the rest are public roadmap.
-- **Eighteen hands-on modules**, each with vocabulary, concepts, examples,
+- **Six-level ladder** from Foundations to AI-Native applications - all six
+  levels are fully written and live.
+- **Forty hands-on modules**, each with vocabulary, concepts, examples,
   common mistakes, AI-agent guidance and a real project.
 - **A dual-check verification model**: every module ships a Definition of Done
   checklist you verify by hand, plus a generated verification prompt your own
