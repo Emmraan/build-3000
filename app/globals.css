@@ -126,6 +126,12 @@
   ::selection {
     background-color: color-mix(in srgb, var(--ring) 24%, transparent);
   }
+
+  /* Browser default mark background (yellow) bleeds through the .mark
+     gradient and turns muddy in dark mode - tokens own the color instead. */
+  mark {
+    background-color: transparent;
+  }
 }
 
 /* Highlighter-pen mark: the signature detail. Key vocabulary looks like it

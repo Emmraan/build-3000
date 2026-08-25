@@ -6,7 +6,7 @@ export function LevelCard({ level }: { level: Level }) {
   return (
     <Link
       href={`/curriculum?level=${level.slug}`}
-      className="group block rounded-lg border border-border bg-card p-6 transition-shadow duration-200 hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
+      className="group block h-full rounded-lg border border-border bg-card p-6 transition-shadow duration-200 hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
     >
       <div className="flex items-center justify-between gap-3">
         <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">

@@ -19,9 +19,9 @@ export function LevelGrid() {
         live today - the full ladder, foundations to AI-native.
       </p>
 
-      <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid items-stretch gap-4 md:grid-cols-2 lg:grid-cols-3">
         {[...live, ...roadmap].map((level, index) => (
-          <Reveal key={level.slug} delay={index * 80}>
+          <Reveal key={level.slug} delay={index * 80} className="h-full">
             <LevelCard level={level} />
           </Reveal>
         ))}
