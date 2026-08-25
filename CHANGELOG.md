@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/Emmraan/build-3000/compare/v1.1.0...v1.1.1) (2026-08-25)
+
+
+### Bug Fixes
+
+* hero entrance animation, equal level card heights, dark-mode mark contrast ([c270baf](https://github.com/Emmraan/build-3000/commit/c270baf17847ca5aa44b64d0545e7ef5cb2683ce))
+
 # [1.1.0](https://github.com/Emmraan/build-3000/compare/v1.0.0...v1.1.0) (2026-08-25)
 
 
