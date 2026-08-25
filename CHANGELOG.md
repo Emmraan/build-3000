@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Emmraan/build-3000/compare/v1.0.0...v1.1.0) (2026-08-25)
+
+
+### Features
+
+* expand curriculum through level 5 (production, scale, ai-native) ([c6fc087](https://github.com/Emmraan/build-3000/commit/c6fc08703311926de9455143a6166c98a07dd38c))
+
 # 1.0.0 (2026-08-25)
 
 
