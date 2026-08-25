@@ -1,0 +1,81 @@
+name: validate
+
+on:
+  pull_request:
+    paths:
+      - ".github/**"
+      - "app/**"
+      - "components/**"
+      - "data/**"
+      - "lib/**"
+      - "scripts/**"
+      - "tests/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+      - "tsconfig.json"
+      - "vitest.config.mts"
+      - "eslint.config.mjs"
+      - "next.config.*"
+      - "postcss.config.mjs"
+  push:
+    branches: [main]
+    paths:
+      - ".github/**"
+      - "app/**"
+      - "components/**"
+      - "data/**"
+      - "lib/**"
+      - "scripts/**"
+      - "tests/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+      - "tsconfig.json"
+      - "vitest.config.mts"
+      - "eslint.config.mjs"
+      - "next.config.*"
+      - "postcss.config.mjs"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: lint + typecheck + tests + validate-curriculum
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v6 # version from package.json packageManager — do not add with: version (ERR_PNPM_BAD_PM_VERSION)
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Tests + coverage (lib >= 80%)
+        run: pnpm test:coverage
+
+      - name: Validate curriculum
+        run: pnpm validate-curriculum
+
+      - name: Audit (high only, non-blocking)
+        run: pnpm audit --audit-level high || echo "::warning::pnpm audit found high-severity advisories — review manually"
+        continue-on-error: true

@@ -1,0 +1,191 @@
+[
+  {
+    "slug": "product-requirements",
+    "order": 1,
+    "title": "Product Requirements",
+    "description": "State what you are building, for whom, and the problem it solves. One page a stranger can understand without your explanations.",
+    "deliverables": [
+      "Problem statement in two sentences",
+      "Target user described concretely",
+      "Success looks like: three measurable outcomes"
+    ],
+    "drawsOnDomains": ["fundamentals"]
+  },
+  {
+    "slug": "user-stories",
+    "order": 2,
+    "title": "User Stories",
+    "description": "Translate requirements into stories of the form: as a [role], I can [action], so that [benefit]. Every feature earns its place through a story.",
+    "deliverables": [
+      "Stories covering every planned feature",
+      "Each story names exactly one role and one benefit"
+    ],
+    "drawsOnDomains": ["fundamentals"]
+  },
+  {
+    "slug": "acceptance-criteria",
+    "order": 3,
+    "title": "Acceptance Criteria",
+    "description": "For every story, the testable conditions that prove it done - including at least one failure case per story.",
+    "deliverables": [
+      "Given/when/then criteria per story",
+      "One adversarial criterion per story (what an abusive user would try)"
+    ],
+    "drawsOnDomains": ["testing"]
+  },
+  {
+    "slug": "technical-specification",
+    "order": 4,
+    "title": "Technical Specification",
+    "description": "The stack decision document: frameworks, storage, hosting, key libraries - each with a one-line justification and rejected alternatives.",
+    "deliverables": [
+      "Stack table with justifications",
+      "Constraints declared (budget, scale ceiling, timeline)"
+    ],
+    "drawsOnDomains": ["web", "backend", "devops"]
+  },
+  {
+    "slug": "architecture",
+    "order": 5,
+    "title": "Architecture",
+    "description": "The system map: layers, components, data flow direction, and where trust boundaries sit. Drawn in text well enough that another engineer could sketch it.",
+    "deliverables": [
+      "Component diagram in text form",
+      "Trust boundary list: what lives inside each boundary and why"
+    ],
+    "drawsOnDomains": ["web", "backend"]
+  },
+  {
+    "slug": "data-model",
+    "order": 6,
+    "title": "Data Model",
+    "description": "Tables, relations, constraints - the schema-first discipline from Level 2 applied to your own domain.",
+    "deliverables": [
+      "ER outline with keys and relations",
+      "Migration plan from empty database to full schema"
+    ],
+    "drawsOnDomains": ["databases"]
+  },
+  {
+    "slug": "api-design",
+    "order": 7,
+    "title": "API Design",
+    "description": "Every endpoint before any code: method, path, request shape, response shape, status codes, error envelope.",
+    "deliverables": [
+      "Complete route table with example requests",
+      "Error envelope contract documented once, used everywhere"
+    ],
+    "drawsOnDomains": ["backend", "web"]
+  },
+  {
+    "slug": "authentication-authorization-model",
+    "order": 8,
+    "title": "Authentication and Authorization Model",
+    "description": "Who logs in how, what roles exist, and the full permission matrix mapping roles to actions on resources.",
+    "deliverables": [
+      "Auth flows described (register, login, logout, recovery)",
+      "Permission matrix: role x resource x action, deny-by-default"
+    ],
+    "drawsOnDomains": ["security"]
+  },
+  {
+    "slug": "security-considerations",
+    "order": 9,
+    "title": "Security Considerations",
+    "description": "Threat-list your own application: what could an attacker try against each input, endpoint and role - and what stops them.",
+    "deliverables": [
+      "Threat list per trust boundary with mitigations",
+      "Secret management plan (what never enters code or logs)"
+    ],
+    "drawsOnDomains": ["security", "frontend"]
+  },
+  {
+    "slug": "implementation-plan",
+    "order": 10,
+    "title": "Implementation Plan",
+    "description": "Ordered build phases mirroring your Level 2 gated approach, each phase small enough to verify in one sitting.",
+    "deliverables": [
+      "Phase list with exit gates",
+      "Cut list: features explicitly deferred, with reasons"
+    ],
+    "drawsOnDomains": ["fundamentals", "devops"]
+  },
+  {
+    "slug": "ai-agent-instructions",
+    "order": 11,
+    "title": "AI-Agent Instructions",
+    "description": "The standing context document your agent reads every session: project map, conventions, constraints, quality gates it must never skip.",
+    "deliverables": [
+      "Agent context file committed to the repo root",
+      "Per-phase task briefs derived from the implementation plan"
+    ],
+    "drawsOnDomains": ["fundamentals"]
+  },
+  {
+    "slug": "automated-tests",
+    "order": 12,
+    "title": "Automated Tests",
+    "description": "Tests written against acceptance criteria as you build - units for logic, integrations for flows, explicit deny-path assertions.",
+    "deliverables": [
+      "Suite green via one command",
+      "Every acceptance criterion maps to at least one assertion"
+    ],
+    "drawsOnDomains": ["testing"]
+  },
+  {
+    "slug": "deployment",
+    "order": 13,
+    "title": "Deployment",
+    "description": "Ship early, ship often: pipeline configured, environment variables documented, rollback rehearsed before anyone depends on the app.",
+    "deliverables": [
+      "Live environment serving the current build",
+      "Env var inventory documented; rollback executed once deliberately"
+    ],
+    "drawsOnDomains": ["devops"]
+  },
+  {
+    "slug": "observability",
+    "order": 14,
+    "title": "Observability",
+    "description": "Logs that answer tomorrow's questions without leaking today's secrets; errors surfaced, not swallowed.",
+    "deliverables": [
+      "Log format documented; sensitive fields proven absent",
+      "Health check endpoint responding on production"
+    ],
+    "drawsOnDomains": ["backend", "devops"]
+  },
+  {
+    "slug": "security-review",
+    "order": 15,
+    "title": "Security Review",
+    "description": "Adversarial pass over the finished build - the Trust Nothing audit plus authentication and authorization checks run against production.",
+    "deliverables": [
+      "Executed hostile-request suite with results recorded",
+      "Isolation and permission checks demonstrated live"
+    ],
+    "drawsOnDomains": ["security", "testing"]
+  },
+  {
+    "slug": "performance-scalability",
+    "order": 16,
+    "title": "Performance and Scalability Considerations",
+    "description": "Where will this break first when real users arrive? Name the bottlenecks honestly and decide which ones matter at YOUR scale.",
+    "deliverables": [
+      "Bottleneck list ranked by likelihood x impact",
+      "One improvement implemented OR one scaling trigger documented"
+    ],
+    "drawsOnDomains": ["databases", "backend"]
+  },
+  {
+    "slug": "production-readiness-review",
+    "order": 17,
+    "title": "Production Readiness Review",
+    "description": "The final gate you run yourself: every artifact above reviewed, every gate green, smoke tests passed - then, and only then, ship and say so publicly.",
+    "deliverables": [
+      "Completed readiness checklist signed off item by item",
+      "Post-deploy smoke test evidence",
+      "Public announcement only after personal verification passes"
+    ],
+    "drawsOnDomains": ["testing", "security", "devops"]
+  }
+]

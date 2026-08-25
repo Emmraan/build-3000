@@ -1,0 +1,35 @@
+# dependencies
+node_modules/
+
+# next.js build output
+.next/
+out/
+build/
+
+# testing
+coverage/
+coverage.*
+
+# typecheck / build caches
+.tsbuildinfo
+*.tsbuildinfo
+.turbo/
+
+# package manager logs
+pnpm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# environment files
+.env
+.env.local
+.env.*.local
+
+# vercel
+.vercel/
+
+# editors & OS
+.idea/
+.DS_Store
+Thumbs.db

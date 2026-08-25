@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------------------
+   build-3000 design tokens — "Ink & Paper"
+   Warm bone canvas, charcoal ink text, amber highlighter accent.
+   Editorial serif for display type; flat 1px warm borders; near-zero shadows.
+--------------------------------------------------------------------------- */
+
+:root {
+  --background: #faf9f7;
+  --foreground: #1c1917;
+  --card: #ffffff;
+  --card-foreground: #1c1917;
+  --popover: #ffffff;
+  --popover-foreground: #1c1917;
+  --primary: #1c1917;
+  --primary-foreground: #faf9f7;
+  --secondary: #f1efe9;
+  --secondary-foreground: #292524;
+  --muted: #f1efe9;
+  --muted-foreground: #78716c;
+  --accent: #b45309;
+  --accent-foreground: #fffbeb;
+  --highlight: #fdf0d9;
+  --highlight-foreground: #92400e;
+  --destructive: #b91c1c;
+  --destructive-foreground: #fef2f2;
+  --success: #3f6212;
+  --badge-live-bg: #edf3ec;
+  --badge-live-fg: #346538;
+  --badge-roadmap-bg: #fbf3db;
+  --badge-roadmap-fg: #956400;
+  --border: #e7e4dd;
+  --input: #e7e4dd;
+  --ring: #b45309;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: #161412;
+  --foreground: #edeae4;
+  --card: #1d1a17;
+  --card-foreground: #edeae4;
+  --popover: #23201c;
+  --popover-foreground: #edeae4;
+  --primary: #f5f2ec;
+  --primary-foreground: #1c1917;
+  --secondary: #262220;
+  --secondary-foreground: #e7e4de;
+  --muted: #262220;
+  --muted-foreground: #a8a29a;
+  --accent: #d97706;
+  --accent-foreground: #1c1917;
+  --highlight: #332a1c;
+  --highlight-foreground: #fbbf24;
+  --destructive: #ef4444;
+  --destructive-foreground: #fef2f2;
+  --success: #a3e635;
+  --badge-live-bg: #24301f;
+  --badge-live-fg: #9fc98f;
+  --badge-roadmap-bg: #33291b;
+  --badge-roadmap-fg: #d8b45a;
+  --border: #2c2825;
+  --input: #2c2825;
+  --ring: #d97706;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-highlight: var(--highlight);
+  --color-highlight-foreground: var(--highlight-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-badge-live-bg: var(--badge-live-bg);
+  --color-badge-live-fg: var(--badge-live-fg);
+  --color-badge-roadmap-bg: var(--badge-roadmap-bg);
+  --color-badge-roadmap-fg: var(--badge-roadmap-fg);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo,
+    Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-display: var(--font-instrument-serif), Georgia, "Times New Roman",
+    serif;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display tracking-tight;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--ring) 24%, transparent);
+  }
+}
+
+/* Highlighter-pen mark: the signature detail. Key vocabulary looks like it
+   was marked in a textbook with a broad amber pen. */
+@utility mark {
+  background-image: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--highlight) 92%, transparent) 38%,
+    transparent 38%
+  );
+  color: var(--highlight-foreground);
+  padding-inline: 0.15em;
+}
+
+/* Warm ambient light spot for hero sections — barely-there depth. */
+@utility ambient-radial {
+  background-image: radial-gradient(
+    ellipse 60% 50% at 24% 0%,
+    color-mix(in srgb, var(--ring) 7%, transparent),
+    transparent 70%
+  );
+}

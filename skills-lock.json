@@ -1,0 +1,179 @@
+{
+    "version":  1,
+    "skills":  {
+                   "code-documenter":  {
+                                           "source":  "Emmraan/agent-skills",
+                                           "sourceType":  "github",
+                                           "skillPath":  "skills/agent-meta/code-documenter/SKILL.md",
+                                           "computedHash":  "2d91b9634b17daf59e1aae24cf51a09c9b986ae3d4fdedeb8d93b1dcaa97d97e"
+                                       },
+                   "code-reviewer":  {
+                                         "source":  "Emmraan/agent-skills",
+                                         "sourceType":  "github",
+                                         "skillPath":  "skills/testing-quality/code-reviewer/SKILL.md",
+                                         "computedHash":  "86b4fc6669ea82834f433617dd617ed1011cf7af5f3855c8d759b95690ac1e2a"
+                                     },
+                   "code-simplification":  {
+                                               "source":  "Emmraan/agent-skills",
+                                               "sourceType":  "github",
+                                               "skillPath":  "skills/testing-quality/code-simplification/SKILL.md",
+                                               "computedHash":  "da75a77fbe6f7cc2fad1643d4940b7ac1daa8eee127649fb0ad54dca383fa4b3"
+                                           },
+                   "design-taste-frontend":  {
+                                                 "source":  "Leonxlnx/taste-skill",
+                                                 "sourceType":  "github",
+                                                 "skillPath":  "skills/taste-skill/SKILL.md",
+                                                 "computedHash":  "2e064e92aca020b2e0bad69326fe7ea55d59005ed53d1a8cbce1bd135d44b8b3"
+                                             },
+                   "forward-deployed-engineer":  {
+                                                     "source":  "Emmraan/agent-skills",
+                                                     "sourceType":  "github",
+                                                     "skillPath":  "skills/agent-meta/forward-deployed-engineer/SKILL.md",
+                                                     "computedHash":  "ecac8d53e650ed9d46aefbfb1e6834595ba5d02b834c4af109e8e81df34c4cd4"
+                                                 },
+                   "frontend-core":  {
+                                         "source":  "Emmraan/agent-skills",
+                                         "sourceType":  "github",
+                                         "skillPath":  "skills/frontend-ui/frontend-core/SKILL.md",
+                                         "computedHash":  "4eaf470839833b27584634553f9e21165631be08eab2ea7e19d1bda375215f15"
+                                     },
+                   "frontend-craft":  {
+                                          "source":  "Emmraan/agent-skills",
+                                          "sourceType":  "github",
+                                          "skillPath":  "skills/frontend-ui/frontend-craft/SKILL.md",
+                                          "computedHash":  "8dafb4230713f1e0a4c3f939bcffb3ba8cd093d63c3412b702098e1371cc3842"
+                                      },
+                   "frontend-performance":  {
+                                                "source":  "Emmraan/agent-skills",
+                                                "sourceType":  "github",
+                                                "skillPath":  "skills/frontend-ui/frontend-performance/SKILL.md",
+                                                "computedHash":  "958528b69e43d3727250a65b284480a055c3ecfb8a987f71da54a06901fa3d97"
+                                            },
+                   "github-actions-engineering":  {
+                                                      "source":  "Emmraan/agent-skills",
+                                                      "sourceType":  "github",
+                                                      "skillPath":  "skills/devops-cloud/github-actions-engineering/SKILL.md",
+                                                      "computedHash":  "602457d9da8709af514e2ef0d8b717bac9520ddb4ca22ef83591af186a15e7fd"
+                                                  },
+                   "incremental-implementation":  {
+                                                      "source":  "Emmraan/agent-skills",
+                                                      "sourceType":  "github",
+                                                      "skillPath":  "skills/agent-meta/incremental-implementation/SKILL.md",
+                                                      "computedHash":  "121152f32f80bee9a1efe5c91da89d9994db5b92839a7684006e2000c78b8c18"
+                                                  },
+                   "loop-orchestrator":  {
+                                             "source":  "Emmraan/agent-skills",
+                                             "sourceType":  "github",
+                                             "skillPath":  "skills/agent-meta/loop-orchestrator/SKILL.md",
+                                             "computedHash":  "2b51e30015676c59e7c3349dc3180762ff6a00356090c2e8413b49f84e1c4d21"
+                                         },
+                   "markdown-for-agents":  {
+                                               "source":  "Emmraan/agent-skills",
+                                               "sourceType":  "github",
+                                               "skillPath":  "skills/agent-meta/markdown-for-agents/SKILL.md",
+                                               "computedHash":  "722a09d55aab6fedfaa6a4b00984c25b83916ab6a7d33514262c0a16b3a11d0f"
+                                           },
+                   "microinteractions":  {
+                                             "source":  "Emmraan/agent-skills",
+                                             "sourceType":  "github",
+                                             "skillPath":  "skills/animation-webgl/microinteractions/SKILL.md",
+                                             "computedHash":  "cf181b74a9d05789748cba9fda4ba4f68d4c8e4a5591a363d7ec40a794729ede"
+                                         },
+                   "minimalist-ui":  {
+                                         "source":  "Leonxlnx/taste-skill",
+                                         "sourceType":  "github",
+                                         "skillPath":  "skills/minimalist-skill/SKILL.md",
+                                         "computedHash":  "1a292d1459292649dc5b422e029093259b6127e7df2f37ad8c22033174333a57"
+                                     },
+                   "motion":  {
+                                  "source":  "Emmraan/agent-skills",
+                                  "sourceType":  "github",
+                                  "skillPath":  "skills/animation-webgl/motion/SKILL.md",
+                                  "computedHash":  "3060afecb4144363262f7cd6ae6ede3daa912e8007bda67fa0b05cb30550a5f0"
+                              },
+                   "nextjs":  {
+                                  "source":  "Emmraan/agent-skills",
+                                  "sourceType":  "github",
+                                  "skillPath":  "skills/frontend-ui/nextjs/SKILL.md",
+                                  "computedHash":  "960fb97525715be226b9ec52afdfe71cba9a491a288ef9c2334e1c2dfe88115e"
+                              },
+                   "open-source-project-maintainer":  {
+                                                          "source":  "Emmraan/agent-skills",
+                                                          "sourceType":  "github",
+                                                          "skillPath":  "skills/agent-meta/open-source-project-maintainer/SKILL.md",
+                                                          "computedHash":  "7f38523b8cac19b2cb15a797deb925356a579b1eb920b3962aa8cbb68b64746e"
+                                                      },
+                   "planning-and-task-breakdown":  {
+                                                       "source":  "Emmraan/agent-skills",
+                                                       "sourceType":  "github",
+                                                       "skillPath":  "skills/agent-meta/planning-and-task-breakdown/SKILL.md",
+                                                       "computedHash":  "05ee462493f613d109cdb48992902ffb6377a0e4602b43560e4422c6b1a7f1b1"
+                                                   },
+                   "react":  {
+                                 "source":  "Emmraan/agent-skills",
+                                 "sourceType":  "github",
+                                 "skillPath":  "skills/frontend-ui/react/SKILL.md",
+                                 "computedHash":  "67f1c07f4b51bcda3cae0b747052223538601f25205543d651bd88c5f1bf6943"
+                             },
+                   "repository-foundation-scaffold":  {
+                                                          "source":  "Emmraan/agent-skills",
+                                                          "sourceType":  "github",
+                                                          "skillPath":  "skills/agent-meta/repository-foundation-scaffold/SKILL.md",
+                                                          "computedHash":  "d489987dffab0ad4ebcd28adfaeee1f5ebfbc37178a5fb7066a4c01c69718e41"
+                                                      },
+                   "sdlc-workflow":  {
+                                         "source":  "Emmraan/agent-skills",
+                                         "sourceType":  "github",
+                                         "skillPath":  "skills/agent-meta/sdlc-workflow/SKILL.md",
+                                         "computedHash":  "fa6ae1df90a92e83f2d4963b15744590680b912daf973fd68def77ce169b66e6"
+                                     },
+                   "seo":  {
+                               "source":  "Emmraan/agent-skills",
+                               "sourceType":  "github",
+                               "skillPath":  "skills/marketing-growth/seo/SKILL.md",
+                               "computedHash":  "2933ba01b5b019d9c7e5ac1c0704e51033edac732779ccf0f47e7450e30e4736"
+                           },
+                   "tailwind-css":  {
+                                        "source":  "Emmraan/agent-skills",
+                                        "sourceType":  "github",
+                                        "skillPath":  "skills/frontend-ui/tailwind-css/SKILL.md",
+                                        "computedHash":  "ae7f248a34be77678b06a08f1207f067bcd075e7a986bcd4abd07fc9adef283c"
+                                    },
+                   "technical-writer":  {
+                                            "source":  "Emmraan/agent-skills",
+                                            "sourceType":  "github",
+                                            "skillPath":  "skills/agent-meta/technical-writer/SKILL.md",
+                                            "computedHash":  "85405be022b44e350995542c0532145debb8f40e4d5d879b7c8b35a988e4f5f5"
+                                        },
+                   "testing":  {
+                                   "source":  "Emmraan/agent-skills",
+                                   "sourceType":  "github",
+                                   "skillPath":  "skills/testing-quality/testing/SKILL.md",
+                                   "computedHash":  "261a7709e51ae7e0d39b328044b9bec13cf851751629c00ae1c9a9aadef47f05"
+                               },
+                   "test-master":  {
+                                       "source":  "Emmraan/agent-skills",
+                                       "sourceType":  "github",
+                                       "skillPath":  "skills/testing-quality/test-master/SKILL.md",
+                                       "computedHash":  "5dc801349ce74fc94fb5f46c465c693d7bbacc7a41c503c40a1d52651b85d697"
+                                   },
+                   "typescript":  {
+                                      "source":  "Emmraan/agent-skills",
+                                      "sourceType":  "github",
+                                      "skillPath":  "skills/frontend-ui/typescript/SKILL.md",
+                                      "computedHash":  "29c3563ebb77968143b7c0dbacd559a3ab4be93ed40b9e7e23455c28b66ec70b"
+                                  },
+                   "using-agent-skills":  {
+                                              "source":  "Emmraan/agent-skills",
+                                              "sourceType":  "github",
+                                              "skillPath":  "skills/agent-meta/using-agent-skills/SKILL.md",
+                                              "computedHash":  "00343c481e14b422cab8f0c95589cd66568d00d9b2619522f531cb7d684c9b53"
+                                          },
+                   "version-control":  {
+                                           "source":  "Emmraan/agent-skills",
+                                           "sourceType":  "github",
+                                           "skillPath":  "skills/devops-cloud/version-control/SKILL.md",
+                                           "computedHash":  "8c5d7159450bcd9f5fe0229c3c1c00c3bcc08df7b5acdfed24d0791430e7193f"
+                                       }
+               }
+}

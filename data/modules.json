@@ -1,0 +1,1846 @@
+[
+  {
+    "slug": "what-is-software",
+    "title": "What Is Software?",
+    "level": "level-0-foundations",
+    "domain": "fundamentals",
+    "summary": "Programs, files and running code - the words behind the magic.",
+    "order": 1,
+    "prerequisites": [],
+    "objective": "Explain what a program is, where software lives on your machine, and use the words file, folder, app and source code correctly when talking to your AI agent.",
+    "vocabulary": [
+      { "term": "program", "meaning": "A list of instructions a computer follows in order." },
+      { "term": "source code", "meaning": "The text version of a program that humans read and edit." },
+      { "term": "file", "meaning": "A named container for data on your computer - code, text, images are all files." },
+      { "term": "folder", "meaning": "A container that groups related files together." },
+      { "term": "application", "meaning": "A program made for people to use - a notes app, a game, a website." }
+    ],
+    "concepts": [
+      {
+        "name": "Code is text, software is action",
+        "explanation": "Source code is plain text until something runs it. Your AI agent edits text files; the computer turns them into behavior. When people say 'run the app', they mean 'execute these instructions'."
+      },
+      {
+        "name": "Everything is a file",
+        "explanation": "Your app's code, its settings, its images and even the record of what your agent did - all files in folders. If you can organize files, you can organize software."
+      }
+    ],
+    "explanations": [
+      {
+        "title": "Instructions, not intelligence",
+        "body": "A program does exactly what its instructions say - nothing more. This is also true of your AI agent's output: it writes instructions for computers. Reading those instructions (the code) is how you stay the director."
+      },
+      {
+        "title": "Where software lives",
+        "body": "Every app starts as a project folder somewhere on your disk. The folder holds the code files, settings files and assets. Knowing 'it is all just a folder' removes most of the fear."
+      }
+    ],
+    "examples": [
+      {
+        "title": "A calculator button",
+        "description": "When you tap '=' in a calculator app, a few lines of code take the numbers on screen, add them, and put the result back. That whole feature can be under ten lines of text."
+      },
+      {
+        "title": "This curriculum site",
+        "description": "The page you are reading is files: layout files, style files and data files. A build step turned them into the site. Nothing more mysterious than that."
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Assuming the AI agent 'understands' your goal the way a person would.",
+        "fix": "State the goal, the inputs and what 'done' looks like. The agent fills gaps by guessing - guesses you have to review."
+      },
+      {
+        "mistake": "Never looking at the files the agent creates.",
+        "fix": "Open each new file once and ask the agent for a one-line summary. You are not learning to write code yet - you are learning to recognize it."
+      }
+    ],
+    "agentGuidance": "When your agent scaffolds anything, follow up with: 'List every file you created and describe each in one sentence.' Make this a reflex from day one.",
+    "project": {
+      "slug": "vocabulary-notebook",
+      "title": "Vocabulary Notebook",
+      "brief": "Have your agent build a single-page notebook that lists every term you learn in this curriculum - term on the left, meaning on the right. You will extend it as you learn.",
+      "requirements": [
+        "One HTML file that opens directly in a browser by double-clicking it",
+        "Shows at least five terms with their meanings in a readable list or table",
+        "You can add a new term by asking the agent (and later, by copying the pattern yourself)"
+      ],
+      "agentContext": "Build a single self-contained HTML file called notebook.html with inline CSS. It must render a titled list of term-meaning pairs stored in one obvious place in the file so a beginner can find and copy the pattern. No JavaScript frameworks, no build step, no external dependencies."
+    },
+    "definitionOfDone": {
+      "functional": [
+        "notebook.html opens in a browser with a double-click, no server needed",
+        "At least five term-meaning pairs are visible",
+        "Each pair renders as term plus meaning without overlap or broken layout"
+      ],
+      "architecture": [
+        "One self-contained file; terms defined in one clearly marked place",
+        "No external libraries or network requests"
+      ],
+      "security": [],
+      "testing": [
+        "Opened in a browser and visually confirmed all five entries render"
+      ],
+      "production": []
+    },
+    "verificationPrompt": "Review my Vocabulary Notebook project. I asked my coding agent to build a single self-contained HTML file listing at least five term-meaning pairs. Check my actual file against this checklist and answer PASS or FAIL for each item with one line of evidence from the file itself: (1) opens standalone with no server or dependencies, (2) five or more term-meaning pairs present, (3) terms defined in one clearly marked place, (4) no external libraries or network requests. Then tell me: which assumption in my instructions most likely caused any FAIL, and the smallest fix.",
+    "reviewQuestions": [
+      "In your own words: what is the difference between source code and a running program?",
+      "Your agent created four files. What question do you ask before trusting any of them?",
+      "Why is 'it is all just files in a folder' a useful thing to know?"
+    ],
+    "capabilities": [
+      "Use the words program, source code, file, folder and application accurately",
+      "Ask an agent to explain every file it creates",
+      "Open and inspect an HTML file without fear"
+    ],
+    "nextModule": "terminal-basics"
+  },
+  {
+    "slug": "terminal-basics",
+    "title": "Terminal Basics",
+    "level": "level-0-foundations",
+    "domain": "fundamentals",
+    "summary": "The text window where you and your agent actually drive the computer.",
+    "order": 2,
+    "prerequisites": ["what-is-software"],
+    "objective": "Run basic terminal commands, understand what a working directory is, and read command output instead of fearing it.",
+    "vocabulary": [
+      { "term": "terminal", "meaning": "A window where you type text commands instead of clicking buttons." },
+      { "term": "shell", "meaning": "The program inside the terminal that reads and executes your commands." },
+      { "term": "command", "meaning": "A word plus optional arguments that tells the computer to do something specific." },
+      { "term": "path", "meaning": "The address of a file or folder, like documents/projects/my-app." },
+      { "term": "working directory", "meaning": "The folder your terminal is currently 'inside' - commands happen here." }
+    ],
+    "concepts": [
+      {
+        "name": "Commands are just programs",
+        "explanation": "Every command you type launches a small program. dir or ls lists folder contents; cd changes your working directory. There is no second hidden computer - the terminal is a direct line to the same files you see in Explorer or Finder."
+      },
+      {
+        "name": "Location changes meaning",
+        "explanation": "The same command behaves differently depending on your working directory. Running a project's dev server from the wrong folder is the number-one beginner error."
+      }
+    ],
+    "explanations": [
+      {
+        "title": "Reading output top to bottom",
+        "body": "Terminal output is a conversation. Errors usually appear last and often name the exact problem ('file not found', 'command not recognized'). Train yourself to read the last lines first - both for your own commands and for your agent's output."
+      },
+      {
+        "title": "Why agents live here too",
+        "body": "AI coding agents run inside your terminal because that is where programs are started, tested and inspected. When your agent says it 'ran the tests', it typed commands into this same interface."
+      }
+    ],
+    "examples": [
+      {
+        "title": "Looking around",
+        "description": "pwd (or cd with no arguments on Windows) shows where you are; ls (dir on Windows) lists what is here; cd my-project moves you into a folder."
+      },
+      {
+        "title": "The classic mistake",
+        "description": "Typing npm install in your home folder instead of the project folder creates junk files thousands of miles from where they belong. Always check your location first."
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Running commands in the wrong folder.",
+        "fix": "Print your location (pwd or cd) before doing anything that changes files."
+      },
+      {
+        "mistake": "Closing the terminal the moment red text appears.",
+        "fix": "Red text is information, not explosion. Copy the last lines and paste them to your agent - it diagnoses from exactly this evidence."
+      }
+    ],
+    "agentGuidance": "Paste errors verbatim to your agent - never paraphrase them. The exact wording of an error is the diagnostic clue. Ask: 'Explain this error in one sentence, then give me the exact command to fix it.'",
+    "project": {
+      "slug": "command-journal",
+      "title": "Command Journal",
+      "brief": "Spend twenty minutes deliberately driving the terminal: move between folders, look inside them, create a file - then save a journal of what you ran and what happened.",
+      "requirements": [
+        "Navigate to at least three different folders using cd",
+        "Create a folder and a text file from the terminal",
+        "Save a journal.txt containing at least ten commands you ran with a one-line note about what each did"
+      ],
+      "agentContext": "Do not build software for this project. Instead act as a terminal coach: suggest ten progressively interesting beginner-safe commands one at a time (navigation, listing, file creation, reading a file), wait for my paste-back of the result, and confirm or correct my understanding before the next one."
+    },
+    "definitionOfDone": {
+      "functional": [
+        "journal.txt exists and contains at least ten commands with notes",
+        "At least one folder and one file were created from the terminal during the session"
+      ],
+      "architecture": [],
+      "security": [],
+      "testing": [
+        "Re-ran two commands from the journal and got the expected results"
+      ],
+      "production": []
+    },
+    "verificationPrompt": "Act as a reviewer for my Command Journal exercise. I saved journal.txt with ten or more terminal commands and notes. Read the journal and check: (1) are all ten commands syntactically valid for my operating system, (2) do the notes match what each command actually does, (3) are any of them risky if re-run (deletion, overwriting)? Answer PASS or FAIL per point with evidence from the file, then name the one command whose purpose I most likely misunderstood.",
+    "reviewQuestions": [
+      "What is your working directory right now, and how do you find out?",
+      "Your agent says 'tests failed' and prints red text. What do you do first?",
+      "Why does the same command behave differently in two folders?"
+    ],
+    "capabilities": [
+      "Navigate folders and run basic commands confidently",
+      "Read the last lines of terminal output first",
+      "Paste exact errors to an agent for diagnosis"
+    ],
+    "nextModule": "projects-and-files"
+  },
+  {
+    "slug": "projects-and-files",
+    "title": "Projects, Files and Structure",
+    "level": "level-0-foundations",
+    "domain": "fundamentals",
+    "summary": "What a project folder is, why structure matters, and the files every project has.",
+    "order": 3,
+    "prerequisites": ["terminal-basics"],
+    "objective": "Recognize the standard files in any modern project folder and explain what each one is for, so agent-created structures stop looking random.",
+    "vocabulary": [
+      { "term": "project", "meaning": "One folder holding everything an application needs - code, settings and description files." },
+      { "term": "config file", "meaning": "A file that stores settings so tools know how to treat the project." },
+      { "term": "dependency", "meaning": "Someone else's pre-built code package your project uses instead of rewriting it." },
+      { "term": "README", "meaning": "The front-door document explaining what a project is and how to run it." },
+      { "term": "entry point", "meaning": "The file where a program starts executing." }
+    ],
+    "concepts": [
+      {
+        "name": "Conventions carry meaning",
+        "explanation": "Tools expect certain names: package.json tells JavaScript tools what your project needs, README.md introduces it to humans. Following conventions lets every tool - including agents - orient instantly."
+      },
+      {
+        "name": "Dependencies are borrowed strength",
+        "explanation": "Modern apps are mostly assembled from packages other people published. A manifest file lists what you borrow; a lockfile pins exact versions. More dependencies mean more power and more surface area to maintain."
+      }
+    ],
+    "explanations": [
+      {
+        "title": "Reading a project folder like a map",
+        "body": "Top level: manifest files (what this project is and needs), README (how to use it), source folders (where code lives), config files (how tools should behave). When your agent generates a new project, walk this map out loud with it once."
+      },
+      {
+        "title": "Structure is communication",
+        "body": "Folders group things that change together: UI code near UI code, settings near settings. Good structure makes the next change easy to find; bad structure makes even the agent guess."
+      }
+    ],
+    "examples": [
+      {
+        "title": "Two files every repo has",
+        "description": "README.md answers 'what is this and how do I run it'; the manifest (like package.json) answers 'what does it depend on'. Open both first in any unfamiliar project."
+      },
+      {
+        "title": "node_modules is rented furniture",
+        "description": "Downloaded dependencies land in a folder you never hand-edit and never need to back up - it can be rebuilt from the manifest anytime."
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Letting the agent scatter files randomly across the project.",
+        "fix": "Insist on one conventional layout: 'Follow standard Next.js structure and explain the role of each top-level file.'"
+      },
+      {
+        "mistake": "Hand-editing lockfiles or downloaded dependency folders.",
+        "fix": "Change the manifest through the package manager command; regenerate the rest."
+      }
+    ],
+    "agentGuidance": "After any scaffold, ask: 'Show me the project tree and label each top-level entry: mine-to-edit, tool-generated-but-readable, or never-touch.' Keep this map in your head for every future project.",
+    "project": {
+      "slug": "project-blueprint",
+      "title": "Project Blueprint",
+      "brief": "Create the skeleton of a real web project - not a working app yet, just the honest bones: README, manifest-style metadata and an organized folder plan you generate with your agent.",
+      "requirements": [
+        "A project folder named blueprint with a README.md describing purpose and how someone would run it",
+        "A valid package.json with name, version, description and license fields",
+        "src/ and public/ folders present with a one-line placeholder file in each explaining its future role"
+      ],
+      "agentContext": "Scaffold a minimal static web project folder called blueprint: package.json with sensible metadata, README.md written in plain language for a newcomer, src/ and public/ directories each containing a PLACEHOLDER.md one-liner about the folder's purpose. Use standard conventions only; no installed dependencies, no build tooling."
+    },
+    "definitionOfDone": {
+      "functional": [
+        "blueprint folder contains README.md, package.json, src/, public/",
+        "package.json parses as valid JSON with name, version, description and license",
+        "README explains the project's purpose and a hypothetical run step"
+      ],
+      "architecture": [
+        "Folder layout follows common conventions with no stray root files"
+      ],
+      "security": [],
+      "testing": [
+        "Ran a JSON validator against package.json and it passed"
+      ],
+      "production": []
+    },
+    "verificationPrompt": "Review my Project Blueprint folder. Check against this Definition of Done and answer PASS or FAIL per item using evidence from the actual files: (1) contains exactly README.md, package.json, src/ and public/ with nothing stray at the root, (2) package.json is valid JSON with name, version, description, license, (3) README states purpose plus a plausible run instruction, (4) each placeholder file describes its folder's role in one line. Then tell me which convention a professional reviewer would say I got most wrong, if any.",
+    "reviewQuestions": [
+      "Which two files do you open first in an unfamiliar project, and why?",
+      "What is the difference between a manifest and a lockfile?",
+      "Why should you never hand-edit downloaded dependency folders?"
+    ],
+    "capabilities": [
+      "Read any project folder's structure and explain its parts",
+      "Instruct an agent to follow conventions instead of inventing layouts",
+      "Explain what dependencies are and where they live"
+    ],
+    "nextModule": "ai-coding-agents"
+  },
+  {
+    "slug": "ai-coding-agents",
+    "title": "Working With AI Coding Agents",
+    "level": "level-0-foundations",
+    "domain": "fundamentals",
+    "summary": "What agents can do, how they fail, and how to direct them instead of hoping.",
+    "order": 4,
+    "prerequisites": ["projects-and-files"],
+    "objective": "Direct an AI coding agent with structured instructions, understand context windows and failure modes, and build the review habit that keeps you in charge.",
+    "vocabulary": [
+      { "term": "prompt", "meaning": "The instruction text you give an AI model or agent." },
+      { "term": "context", "meaning": "Everything the agent can currently see - your messages, files, prior replies." },
+      { "term": "context window", "meaning": "The finite amount of context an agent can hold at once." },
+      { "term": "tool call", "meaning": "An agent's action on the world: reading a file, editing code, running a command." },
+      { "term": "hallucination", "meaning": "When an AI states something false with complete confidence." }
+    ],
+    "concepts": [
+      {
+        "name": "Specify, do not wish",
+        "explanation": "'Make it better' forces the agent to guess what better means. Goal, constraints and definition of done turn wishes into work orders. Vague input produces confident nonsense; specific input produces reviewable output."
+      },
+      {
+        "name": "Context is finite and precious",
+        "explanation": "Agents forget what falls out of their context window. Long sessions drift. Re-stating key facts, pointing at specific files, and starting fresh sessions per task are professional habits, not quirks."
+      }
+    ],
+    "explanations": [
+      {
+        "title": "The delegation loop",
+        "body": "Directing an agent is a loop: state the task, let it work, inspect the diff, test the result, correct with specifics. The loop never skips inspection - that is what separates directing from gambling."
+      },
+      {
+        "title": "Failure modes you will meet",
+        "body": "Hallucinated APIs (functions that do not exist), silent scope creep (changing files you did not ask about), and overconfident claims ('all tests pass' when none ran). Each has the same antidote: verify against reality, not against the agent's confidence."
+      }
+    ],
+    "examples": [
+      {
+        "title": "Weak prompt vs strong prompt",
+        "description": "'Add login to my app' versus 'Add email-and-password login: form validates non-empty, wrong credentials show a generic error, successful login redirects to /home. Do not touch other pages.' Same agent, completely different outcomes."
+      },
+      {
+        "title": "Asking for the diff",
+        "description": "'Show me exactly which files you changed and summarize each change in one line' turns a black box into a reviewable change set."
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Accepting large changes without reading them.",
+        "fix": "Require a per-file summary for anything over a couple of files, and skim each file once before approving."
+      },
+      {
+        "mistake": "Pasting passwords, keys or personal data into prompts.",
+        "fix": "Treat prompt text as semi-public. Reference secrets indirectly ('read from .env.local') and never paste their values."
+      }
+    ],
+    "agentGuidance": "Adopt a standing instruction template for real tasks: goal, constraints, definition of done, and 'summarize changed files when finished'. Save it somewhere and reuse it every time.",
+    "project": {
+      "slug": "briefing-doc",
+      "title": "The Briefing Document",
+      "brief": "Write a one-page spec for a small app idea of yours - written so well that an agent (or a person) could build it without asking you a single clarifying question.",
+      "requirements": [
+        "States the app's purpose in two sentences",
+        "Lists concrete features with acceptance criteria for each (what proves it works)",
+        "Lists explicit non-goals (what it should NOT include)",
+        "Names its constraints: single user, no payment, no accounts"
+      ],
+      "agentContext": "Do not write any code. Act as a demanding technical editor for my spec document: challenge every vague phrase, mark each feature missing an acceptance criterion, and return the improved outline as a list of gaps - not a rewrite. I will fix the gaps myself."
+    },
+    "definitionOfDone": {
+      "functional": [
+        "Document covers purpose, features with acceptance criteria, non-goals and constraints",
+        "Every feature has at least one testable acceptance criterion",
+        "A fresh reading requires zero assumed knowledge"
+      ],
+      "architecture": [
+        "One page, four clear sections in the listed order"
+      ],
+      "security": [
+        "Contains no real secrets, emails or personal data in examples"
+      ],
+      "testing": [
+        "Asked the agent to list gaps in the doc and resolved every gap it raised"
+      ],
+      "production": []
+    },
+    "verificationPrompt": "You are auditing my Briefing Document for build-readiness. Read it as if you were the developer receiving it. Answer PASS or FAIL with evidence: (1) purpose understandable in two sentences, (2) every feature has a testable acceptance criterion, (3) non-goals explicitly fence the scope, (4) constraints section exists with no contradictions elsewhere in the doc. Then list any question you would still need to ask me before building from it - if you have none, say so explicitly.",
+    "reviewQuestions": [
+      "Rewrite 'make it look nicer' as a strong prompt for your agent.",
+      "Name two failure modes of AI agents and the antidote for each.",
+      "Why is context described as 'finite and precious'?"
+    ],
+    "capabilities": [
+      "Write structured briefs that remove agent guesswork",
+      "Recognize hallucinations, scope creep and unverified claims",
+      "Keep secrets out of conversations with agents"
+    ],
+    "nextModule": "git-with-an-agent"
+  },
+  {
+    "slug": "git-with-an-agent",
+    "title": "Git Through Your Agent",
+    "level": "level-0-foundations",
+    "domain": "git",
+    "summary": "Repositories, commits and branches - your project's undo button and story book.",
+    "order": 5,
+    "prerequisites": ["ai-coding-agents"],
+    "objective": "Understand what git records, direct your agent to commit work in meaningful steps, and recover from mistakes using history instead of panic.",
+    "vocabulary": [
+      { "term": "repository", "meaning": "A project folder whose full history of changes git remembers." },
+      { "term": "commit", "meaning": "A saved snapshot of your project at one moment, with a message describing why." },
+      { "term": "branch", "meaning": "A parallel line of development you can experiment on safely." },
+      { "term": "merge", "meaning": "Combining one branch's changes into another." },
+      { "term": "remote", "meaning": "A copy of the repository hosted elsewhere, like GitHub." }
+    ],
+    "concepts": [
+      {
+        "name": "History is a safety net",
+        "explanation": "Every commit is a restore point. Break something? Go back to the last good commit. Small frequent commits shrink the blast radius of every mistake - including your agent's mistakes."
+      },
+      {
+        "name": "Commit messages are the story",
+        "explanation": "Six months from now, the log is the only witness to why the code looks this way. 'Fix stuff' tells nothing; 'validate email format on signup' tells the next reader exactly what happened."
+      }
+    ],
+    "explanations": [
+      {
+        "title": "The three questions after any change",
+        "body": "git status shows what changed, git diff (via your agent) shows how it changed, git log shows the story so far. Direct your agent to show you all three whenever you resume work."
+      },
+      {
+        "title": "Branches make experiments cheap",
+        "body": "Trying a risky change? Branch first. If it fails, delete the branch - main stays clean. Agents handle the mechanics; you decide when an experiment deserves its own branch."
+      }
+    ],
+    "examples": [
+      {
+        "title": "Undo via history",
+        "description": "Agent broke the homepage? Restore the last good commit's files - no archaeology required. This single ability changes how boldly you can experiment."
+      },
+      {
+        "title": "Reading a good log",
+        "description": "'add expense delete button', 'fix total ignoring currency', 'deploy v1' - six months later this log still explains the app's evolution line by line."
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Committing rarely, in giant blobs.",
+        "fix": "One logical change per commit. Tell your agent: 'Commit now' at natural checkpoints instead of end-of-day dumps."
+      },
+      {
+        "mistake": "Committing secrets or .env files.",
+        "fix": "Keep a .gitignore from day one and ask the agent to verify staged files before every commit."
+      }
+    ],
+    "agentGuidance": "Standardize commit messages with your agent up front: imperative mood, one line, why-focused. Example standing rule: 'Every commit message: verb first, max 72 characters, describe the why when it is not obvious.'",
+    "project": {
+      "slug": "time-machine",
+      "title": "Time Machine",
+      "brief": "Build a tiny text project entirely through git: create a repo with your agent and evolve a single ideas.txt across at least five meaningful commits, including one experiment on a branch that you deliberately discard.",
+      "requirements": [
+        "Repository initialized with at least five commits total",
+        "Each commit message follows the agreed convention (verb-first, descriptive)",
+        "One branch named experiment with a change that gets deleted without merging",
+        "Final git log tells a readable story of the file's evolution"
+      ],
+      "agentContext": "Initialize a git repository in a new folder. Coach me through evolving ideas.txt across five commits I dictate, enforcing my commit-message convention before each commit. Then create an experiment branch, make one change there, and teach me to abandon the branch cleanly. Show me git log and git status at the end and explain both outputs."
+    },
+    "definitionOfDone": {
+      "functional": [
+        "Repository exists with ideas.txt evolved across at least five commits",
+        "experiment branch was created, changed and discarded without merging",
+        "git log output shows verb-first messages telling a coherent story"
+      ],
+      "architecture": [],
+      "security": [
+        "No secrets or personal files committed; .gitignore excludes junk"
+      ],
+      "testing": [
+        "Verified the discarded branch left no trace on the default branch's content"
+      ],
+      "production": []
+    },
+    "verificationPrompt": "Audit my Time Machine repository as a git reviewer. Run git log yourself if you can. Verify PASS or FAIL with evidence: (1) at least five commits touching ideas.txt, (2) every message verb-first and descriptive, (3) an experiment branch existed and its changes are absent from the final default branch, (4) no committed secrets or junk files. Then show me the single most confusing commit message and rewrite it per my convention.",
+    "reviewQuestions": [
+      "Your agent just wrecked a working file. What is your recovery move?",
+      "What belongs in a commit message that 'fixed bug' leaves out?",
+      "Why create a branch before a risky experiment?"
+    ],
+    "capabilities": [
+      "Direct an agent to commit in meaningful, well-described steps",
+      "Recover any mistake from history instead of redoing work",
+      "Keep secrets out of repository history"
+    ],
+    "nextModule": "web-app-anatomy"
+  },
+  {
+    "slug": "web-app-anatomy",
+    "title": "Anatomy of a Web App",
+    "level": "level-1-first-apps",
+    "domain": "web",
+    "summary": "Frontend, backend, database - the map you need before building anything.",
+    "order": 1,
+    "prerequisites": ["git-with-an-agent"],
+    "objective": "Explain how a web app's pieces fit together - browser, server, database - and trace what happens when a user clicks a button, using the words request, response and JSON precisely.",
+    "vocabulary": [
+      { "term": "frontend", "meaning": "The part of an app that runs in the user's browser - what they see and click." },
+      { "term": "backend", "meaning": "The part running on a server - logic, secrets, and the door to the database." },
+      { "term": "database", "meaning": "Software that remembers data permanently, organized for fast retrieval." },
+      { "term": "HTTP request", "meaning": "The message a browser sends a server asking for data or an action." },
+      { "term": "HTTP response", "meaning": "The server's reply - data, or an error code." },
+      { "term": "JSON", "meaning": "The text format almost all APIs use to exchange structured data." }
+    ],
+    "concepts": [
+      {
+        "name": "The three-layer map",
+        "explanation": "Browser (frontend) talks to a server (backend), which talks to a database. Data flows as requests and responses. Every app you use - from a blog to a bank - fits this map; complexity hides in the details, not in extra layers."
+      },
+      {
+        "name": "The request-response cycle",
+        "explanation": "Click a button and the browser may send a request: 'create this expense'. The backend validates it, touches the database, and responds: success plus the saved record, or an error code. Tracing this cycle is debugging skill number one."
+      }
+    ],
+    "explanations": [
+      {
+        "title": "Why the split exists",
+        "body": "The frontend must be fast and pretty; the backend must be trustworthy and secret-keeping; the database must remember. Different jobs, different layers. When your agent proposes putting a secret in frontend code, this map tells you why that is wrong."
+      },
+      {
+        "title": "Status codes are the truth serum",
+        "body": "200 means ok, 404 means nothing there, 500 means the server broke. Agents and browsers both lie less than status codes. Checking the status code is how you verify 'it works' claims."
+      }
+    ],
+    "examples": [
+      {
+        "title": "Loading a page",
+        "description": "Browser asks the server for the page; server returns HTML; browser requests the styles and scripts referenced; each comes back with a status code. That cascade happens in under a second."
+      },
+      {
+        "title": "Saving a todo",
+        "description": "Submit sends a POST request carrying JSON; backend saves to database; response confirms. Refresh the page - the todo survives because it lives in the database now, not in your browser tab."
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Thinking the browser 'contains' the data.",
+        "fix": "Browser tabs hold copies. Truth lives behind responses. If data matters, it belongs in a database."
+      },
+      {
+        "mistake": "Trusting 'it works' without checking the network layer.",
+        "fix": "Ask your agent to show the actual request and response - URL, status code, body - for any feature that talks to a server."
+      }
+    ],
+    "agentGuidance": "New superpower: when a feature misbehaves, ask your agent to 'trace this interaction end to end - which request fires, what status came back, what did the server log?' You are asking for the cycle, not vibes.",
+    "project": {
+      "slug": "anatomy-lab",
+      "title": "Anatomy Lab",
+      "brief": "With your agent, build a tiny local web page that demonstrates its own existence: it displays its request-response story live - a button triggers a fetch to a free no-key API and shows the raw request URL, the returned status code and a snippet of the JSON response.",
+      "requirements": [
+        "Single page runs locally with a simple start command",
+        "One button performs a real HTTP request to https://api.open-meteo.com (no key needed)",
+        "Page displays: the requested URL, the returned status code, and formatted sample JSON from the response",
+        "A short section on the page explains the three-layer map in your own words"
+      ],
+      "agentContext": "Build a minimal local web app: one page, one button. On click, fetch current weather for a hardcoded city from api.open-meteo.com (free, keyless). Display the request URL, HTTP status code and a formatted excerpt of the JSON response in monospace text. Include a short human-written section explaining the frontend-backend-database map. Keep styling minimal; prioritize clarity over beauty."
+    },
+    "definitionOfDone": {
+      "functional": [
+        "App starts locally with one command and loads in a browser",
+        "Button click performs a real network call to the weather API",
+        "URL, status code and JSON excerpt all visibly update after the click",
+        "Three-layer explanation section present in the author's own words"
+      ],
+      "architecture": [
+        "Single page, one obvious fetch call, no framework overhead"
+      ],
+      "security": [
+        "No secrets in code - the chosen API requires none"
+      ],
+      "testing": [
+        "Clicked the button with the network disconnected and observed a handled failure state instead of a silent break"
+      ],
+      "production": []
+    },
+    "verificationPrompt": "Review my Anatomy Lab app as a senior engineer. Verify with evidence, PASS or FAIL each: (1) one-command local start, (2) button triggers a genuine fetch to api.open-meteo.com with no API key involved, (3) request URL, status code and JSON excerpt render after click, (4) offline click produces a visible handled error rather than silence, (5) no secrets anywhere in the code. Then trace one full button-click interaction end to end - naming the request, the response status, and where each piece of displayed data came from.",
+    "reviewQuestions": [
+      "Trace what happens from button press to screen update in your Anatomy Lab.",
+      "Where should a password check happen - frontend or backend - and why?",
+      "What does a 404 status code tell you that a blank screen does not?"
+    ],
+    "capabilities": [
+      "Map any app onto the frontend-backend-database picture",
+      "Trace a click through request and response",
+      "Verify behavior with status codes instead of trusting appearances"
+    ],
+    "nextModule": "components-and-ui"
+  },
+  {
+    "slug": "components-and-ui",
+    "title": "Components and User Interfaces",
+    "level": "level-1-first-apps",
+    "domain": "frontend",
+    "summary": "Building screens from reusable pieces - the Lego bricks of every modern app.",
+    "order": 2,
+    "prerequisites": ["web-app-anatomy"],
+    "objective": "Think in components - reusable UI pieces with inputs (props) and internal memory (state) - and direct an agent to compose interfaces instead of hand-crafting one-off screens.",
+    "vocabulary": [
+      { "term": "component", "meaning": "A self-contained, reusable piece of interface - a button, a card, a navbar." },
+      { "term": "prop", "meaning": "Data passed INTO a component to configure it, like arguments to a function." },
+      { "term": "state", "meaning": "Data a component remembers internally that can change over time." },
+      { "term": "render", "meaning": "The act of turning component data into what you see on screen." },
+      { "term": "framework", "meaning": "A toolkit (React, Vue, etc.) that standardizes how components are written and updated." }
+    ],
+    "concepts": [
+      {
+        "name": "UI is a function of data",
+        "explanation": "Modern frameworks redraw the screen automatically when state changes. You describe what the screen should look like for any given data; the machinery handles updating the pixels. Stop thinking in steps - think in states."
+      },
+      {
+        "name": "Composition beats duplication",
+        "explanation": "One ExpenseCard component rendered forty times beats forty copy-pasted blocks. Change the component once, all forty update. Duplication is where UI bugs breed."
+      }
+    ],
+    "explanations": [
+      {
+        "title": "Spotting components everywhere",
+        "body": "Open any app: the video card, the sidebar item, the avatar bubble - each is likely ONE component fed DIFFERENT props. Training your eye to see the repeated unit is the core frontend skill."
+      },
+      {
+        "title": "Props down, events up",
+        "body": "Data flows into components via props; components report user actions upward via events/callbacks. When your diagram of who-knows-what gets tangled, that is the smell prompting you to restructure state."
+      }
+    ],
+    "examples": [
+      {
+        "title": "One card, many products",
+        "description": "A shop page is one ProductCard component receiving name, price and image as props, rendered in a list. The 'page' is barely code at all - it is data mapped through one good component."
+      },
+      {
+        "title": "State you can point at",
+        "description": "A counter has one piece of state (the count) and two events (+/-). Being able to enumerate an app's states like this is how you review an agent's UI work."
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Accepting copy-pasted near-identical UI blocks from the agent.",
+        "fix": "Rule for your agent: 'If markup repeats twice with different data, extract a component taking props.'"
+      },
+      {
+        "mistake": "Storing the same fact in five places.",
+        "fix": "One owner per piece of state; everyone else receives props. Ask the agent to name the single owner of each fact."
+      }
+    ],
+    "agentGuidance": "Before letting the agent build UI, make it list the components it plans, the props each takes, and which component owns each piece of state. Approve the PLAN, then let it code. Reviewing a component list takes a minute; reviewing tangled UI takes an hour.",
+    "project": {
+      "slug": "card-gallery",
+      "title": "Card Gallery",
+      "brief": "Direct your agent to build a gallery of cards from a data array - then prove composition works by changing the DATA ONLY and watching the UI update correctly.",
+      "requirements": [
+        "One Card component rendering title, description and a tag",
+        "Gallery renders at least six cards driven purely from a single data array",
+        "Editing one array entry (no other file touched) updates exactly that card",
+        "Empty array produces a friendly empty-state message, not a blank screen"
+      ],
+      "agentContext": "Build a small gallery app: a single Card component (title, description, tag) rendered repeatedly from one data array of at least six entries, plus a graceful empty state. First show me the planned component tree and state ownership for approval; implement only after I approve. No styling frameworks - clean minimal CSS is fine."
+    },
+    "definitionOfDone": {
+      "functional": [
+        "All six cards render from the data array",
+        "Changing one array entry updates exactly that card after reload/re-render",
+        "Emptying the array shows a designed empty state"
+      ],
+      "architecture": [
+        "Exactly one Card component; zero duplicated card markup",
+        "Component list and state ownership documented in the README"
+      ],
+      "security": [],
+      "testing": [
+        "Performed the data-only edit test and confirmed isolated updates",
+        "Rendered the empty-array case intentionally"
+      ],
+      "production": []
+    },
+    "verificationPrompt": "Review my Card Gallery. Inspect the code and verify PASS or FAIL with file-level evidence: (1) a single Card component exists and no card markup is duplicated, (2) cards render exclusively from one data array - no hardcoded cards in markup, (3) an empty array yields the designed empty state, (4) README documents the component list and which piece owns each state. Then try renaming a field in the data array yourself and tell me every place that breaks - that reveals hidden couplings.",
+    "reviewQuestions": [
+      "Pick any app on your phone: name three components inside it.",
+      "What is the difference between a prop and state, in one sentence each?",
+      "Why did we demand a component plan BEFORE letting the agent write UI?"
+    ],
+    "capabilities": [
+      "See interfaces as compositions of reusable components",
+      "Demand component plans before approving agent UI work",
+      "Test UI changes by editing data, not markup"
+    ],
+    "nextModule": "forms-and-validation"
+  },
+  {
+    "slug": "forms-and-validation",
+    "title": "Forms and Input Validation",
+    "level": "level-1-first-apps",
+    "domain": "frontend",
+    "summary": "Getting data from humans safely - and never trusting a single character of it.",
+    "order": 3,
+    "prerequisites": ["components-and-ui"],
+    "objective": "Direct an agent to build forms that collect input, validate it against explicit rules, show helpful errors, and treat every input as untrusted - your first real security habit.",
+    "vocabulary": [
+      { "term": "form", "meaning": "The UI pattern for collecting input: fields, labels, a submit action." },
+      { "term": "validation", "meaning": "Checking submitted values against rules before accepting them." },
+      { "term": "event", "meaning": "Something the user does that code reacts to - typing, submitting, clicking." },
+      { "term": "error state", "meaning": "The designed way your UI behaves when input breaks the rules." },
+      { "term": "sanitizing", "meaning": "Cleaning or rejecting input that could be dangerous, not just wrong." }
+    ],
+    "concepts": [
+      {
+        "name": "Users will type anything",
+        "explanation": "Empty submissions, 500-character names, emails without @, scripts pasted into fields. Assume every field will receive the worst possible value and design rules for it upfront."
+      },
+      {
+        "name": "Validation is a security habit",
+        "explanation": "Checking input is your first line of defense, long before authentication enters the picture. The discipline you build here - explicit rules, reject early, explain failures - scales directly to server-side security later."
+      }
+    ],
+    "explanations": [
+      {
+        "title": "Rules as a contract",
+        "body": "Write validation rules as a visible list: username 3-20 characters, letters and numbers only; email matches a basic pattern; password at least 8 characters. The list IS the specification - your agent codes the list, your tests check the list, your reviewers audit the list."
+      },
+      {
+        "title": "Errors help, they do not scold",
+        "body": "'Invalid input' helps nobody. 'Password must be at least 8 characters' lets the user succeed. Every error message should state the rule that was broken."
+      }
+    ],
+    "examples": [
+      {
+        "title": "The three-layer check",
+        "description": "Required field empty -> block submit, highlight the field. Email malformed -> message under the field. All valid -> success state. Walking the happy path AND each failure path is how you verify a form."
+      },
+      {
+        "title": "Dangerous input example",
+        "description": "A comment box that renders whatever users type can execute scripts attackers paste into it. Rejecting or escaping such input is sanitizing - a preview of XSS, which you will meet properly in Level 2."
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Only testing the happy path.",
+        "fix": "Test every rule with a violating input, plus empty-everything submit. Your DoD should list them."
+      },
+      {
+        "mistake": "Vague error messages like 'Error!' or nothing at all.",
+        "fix": "Every broken rule maps to one specific, human message naming the rule."
+      }
+    ],
+    "agentGuidance": "Give your agent the rules table FIRST, then ask it to enumerate the failure cases it will implement BEFORE coding. You review the case list - that is faster than reviewing code hunting for missed cases.",
+    "project": {
+      "slug": "signup-form",
+      "title": "Signup Form With Rules",
+      "brief": "Build a signup form whose entire personality is its validation: a visible rules table, per-field error messages, and failure paths you can demo on demand.",
+      "requirements": [
+        "Fields: username, email, password with labels",
+        "Visible rules: username 3-20 chars alphanumeric; valid email pattern; password minimum 8 characters",
+        "Submitting invalid input blocks and shows a specific message under each offending field",
+        "Valid submission shows a designed success state (no real accounts being created)"
+      ],
+      "agentContext": "Build a client-side signup form. Implement exactly this validation table: username 3-20 alphanumeric characters; email basic pattern x@y.z; password at least 8 characters. Show a specific error message beneath each failing field on submit; block submission while any rule fails; show a success panel when all pass. Before coding, print the list of failure cases you will cover so I can approve it."
+    },
+    "definitionOfDone": {
+      "functional": [
+        "All three fields validate against the stated rules",
+        "Invalid submits are blocked with per-field, rule-specific messages",
+        "Valid input reaches the success state",
+        "Empty-form submit shows all three errors simultaneously"
+      ],
+      "architecture": [
+        "Rules exist in one obvious place matching the documented table"
+      ],
+      "security": [
+        "No input value is ever inserted into the page as raw HTML",
+        "Browser console stays clean of unhandled errors during abuse attempts"
+      ],
+      "testing": [
+        "Demoed every failure path: empty, bad email, short password, bad username",
+        "Demoed the success path end to end"
+      ],
+      "production": []
+    },
+    "verificationPrompt": "Security-review my Signup Form. Verify PASS or FAIL with evidence: (1) all three rules implemented exactly as specified, (2) each failing field shows ITS OWN rule-naming message, (3) invalid submits are fully blocked, (4) no user input is rendered as raw HTML anywhere, (5) success state reachable only with all rules passing. Then attack the form yourself: try five abusive inputs (script tags, 10000-char strings, weird unicode) and report how the form behaved on each.",
+    "reviewQuestions": [
+      "Recite your form's rules table from memory.",
+      "Why is 'invalid input' a bad error message?",
+      "How does form validation preview real security thinking?"
+    ],
+    "capabilities": [
+      "Specify input rules as reviewable contracts",
+      "Verify forms by walking failure paths, not just the happy path",
+      "Apply never-trust-input as a standing security habit"
+    ],
+    "nextModule": "apis-and-json"
+  },
+  {
+    "slug": "apis-and-json",
+    "title": "APIs and JSON",
+    "level": "level-1-first-apps",
+    "domain": "backend",
+    "summary": "How apps talk to each other - endpoints, requests, responses and the shape of data.",
+    "order": 4,
+    "prerequisites": ["web-app-anatomy"],
+    "objective": "Consume a real API through your agent: read endpoint documentation, handle success and failure responses, and parse JSON confidently.",
+    "vocabulary": [
+      { "term": "API", "meaning": "Application Programming Interface - a defined way for programs to request services from each other." },
+      { "term": "endpoint", "meaning": "One specific URL an API exposes, like /weather or /users/42." },
+      { "term": "REST", "meaning": "The common web style where URLs name resources and HTTP methods name actions." },
+      { "term": "status code", "meaning": "The number in every response classifying the outcome: 200 ok, 404 missing, 500 broken." },
+      { "term": "rate limit", "meaning": "A cap on how many calls you may make in a time window." }
+    ],
+    "concepts": [
+      {
+        "name": "APIs are contracts",
+        "explanation": "Documentation promises: send this, receive that. Your code trusts the contract; the provider may version or change it. Reading docs before coding - and having your agent quote the relevant doc lines - prevents fantasy integrations."
+      },
+      {
+        "name": "Failure is a first-class case",
+        "explanation": "Networks drop, servers hiccup, limits trip. Code that only handles the happy path is a bug factory. Every API call deserves a designed failure state: retry hint, cached data, or honest error message."
+      }
+    ],
+    "explanations": [
+      {
+        "title": "Reading a JSON response",
+        "body": "JSON nests objects {} and arrays []. Top to bottom: what type is the root, where is the array, what fields does each element carry, which fields hold nested objects. Print the raw JSON once and walk it before writing display code."
+      },
+      {
+        "title": "Keys, secrets and the frontend",
+        "body": "Some APIs require keys proving who is calling. A key in frontend code is public the moment you ship - anyone can read it. Keyless APIs (like Open-Meteo) are perfect for learning; keyed ones belong behind a backend, which you will build in Level 2."
+      }
+    ],
+    "examples": [
+      {
+        "title": "One endpoint, two futures",
+        "description": "GET api.example.com/users/7 returns 200 with a JSON user - or 404 with an error object. Your code branches on status first, then parses. Status-first parsing is the professional habit."
+      },
+      {
+        "title": "Rate limits in the wild",
+        "description": "Free tiers often allow ~60 calls per hour. Polling every second burns through it and returns 429 Too Many Requests. Respect limits or cache aggressively."
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Parsing before checking the status code.",
+        "fix": "Branch on status: 2xx parse onward, else handle the failure path explicitly."
+      },
+      {
+        "mistake": "Hardcoding API keys into frontend code.",
+        "fix": "Prefer keyless APIs while frontend-only; move keyed calls behind a backend in Level 2."
+      }
+    ],
+    "agentGuidance": "Before any integration, require your agent to produce a three-line integration note: endpoint(s) used, auth requirements, rate limit. If it cannot cite the docs, it has not read them - send it back to read.",
+    "project": {
+      "slug": "live-data-widget",
+      "title": "Live Data Widget",
+      "brief": "Extend your Anatomy Lab skills into a purposeful widget: pick any keyless public API and build a focused display of one slice of its data, with designed loading, error and empty states.",
+      "requirements": [
+        "Uses a public API requiring NO key (cite it in the README)",
+        "Displays a focused slice of live data (not a raw JSON dump)",
+        "Three designed states: loading, failure with retry affordance, success",
+        "README documents the endpoint(s), their documented limits and the data slice shown"
+      ],
+      "agentContext": "Help me choose a keyless public API suited to a small widget (suggest three options with trade-offs). After I pick one, build a minimal widget showing one focused data slice with explicit loading, error (with retry) and success states. Quote the API documentation lines for endpoints and rate limits into the README. No frameworks unless I approve."
+    },
+    "definitionOfDone": {
+      "functional": [
+        "Widget renders live data from the chosen API on load",
+        "Loading state appears during the request",
+        "Killing the network shows the failure state with a working retry",
+        "Displayed data matches a manual curl/browser check of the same endpoint"
+      ],
+      "architecture": [
+        "Status checked before parsing; each state explicitly handled"
+      ],
+      "security": [
+        "Chosen API requires no key; zero secrets in the repo"
+      ],
+      "testing": [
+        "Triggered all three states manually and screenshot/verified each",
+        "Compared displayed values against the raw endpoint response once"
+      ],
+      "production": []
+    },
+    "verificationPrompt": "Review my Live Data Widget. Verify PASS or FAIL with evidence: (1) uses only keyless endpoints and the README cites the API docs, (2) HTTP status is checked before parsing, (3) loading, failure-with-retry and success states are all implemented and reachable, (4) displayed values correspond to the real API response schema, (5) no secrets in code or git history. Then hit the endpoint yourself and tell me whether my code would survive: a 10-second delay, a 500 response, and a schema change moving the data one level deeper.",
+    "reviewQuestions": [
+      "What does your widget do differently when the status is 500 versus 404?",
+      "Why is a frontend API key effectively public?",
+      "Walk through your JSON's shape: root type, array location, element fields."
+    ],
+    "capabilities": [
+      "Integrate real APIs by reading contracts, not guessing",
+      "Design all response states, not just success",
+      "Keep keys out of frontend code by choosing the right architecture"
+    ],
+    "nextModule": "databases-and-crud"
+  },
+  {
+    "slug": "databases-and-crud",
+    "title": "Databases and CRUD",
+    "level": "level-1-first-apps",
+    "domain": "databases",
+    "summary": "Making data outlive the browser - tables, rows and the four verbs of every app.",
+    "order": 5,
+    "prerequisites": ["apis-and-json"],
+    "objective": "Understand persistent storage, direct an agent to build a Create-Read-Update-Delete application, and verify data truly survives restarts.",
+    "vocabulary": [
+      { "term": "database", "meaning": "Software that stores data durably and retrieves it efficiently." },
+      { "term": "table", "meaning": "A collection of same-shaped records - like a spreadsheet with enforced columns." },
+      { "term": "row / record", "meaning": "One entry in a table - one expense, one user." },
+      { "term": "CRUD", "meaning": "Create, Read, Update, Delete - the four operations nearly every app performs on data." },
+      { "term": "schema", "meaning": "The declared shape of your data: which fields exist and their types." },
+      { "term": "query", "meaning": "A request for data meeting certain conditions." }
+    ],
+    "concepts": [
+      {
+        "name": "Persistence changes everything",
+        "explanation": "Until now, closing the tab erased your app's memory. A database writes data to disk: restart, reboot, revisit tomorrow - it is still there. Persistence is the line between toys and tools."
+      },
+      {
+        "name": "CRUD is the grammar of apps",
+        "explanation": "Notes apps: create notes, read them, edit, delete. Shops: products and orders. Feeds: posts. Once you see CRUD, you see that most apps differ in domain, not mechanics - which is why agents build them so well WHEN you specify the schema."
+      }
+    ],
+    "explanations": [
+      {
+        "title": "Schema first, always",
+        "body": "Decide the shape before the screens: an expense has amount (number), category (text), date (date), note (optional text). Four fields - that decision drives storage, forms, display and validation. Schema-first keeps the agent honest and your reviews fast."
+      },
+      {
+        "title": "Where the database lives at Level 1",
+        "body": "Local options (SQLite file, browser storage backed by a tiny library) are fine now. The multi-user questions - who can touch whose rows - arrive with Level 2's servers. Do not solve sharing problems before having the sharing problem."
+      }
+    ],
+    "examples": [
+      {
+        "title": "The restart test",
+        "description": "Create an expense, close everything, reopen. Still there? Persistence verified. This thirty-second ritual is your database's most important test."
+      },
+      {
+        "title": "Update versus create confusion",
+        "description": "Editing an existing expense must NOT insert a duplicate row. If your app grows a second identical entry after an edit, the update path is really creating - a classic agent bug worth hunting."
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Skipping the schema conversation and letting the agent improvise fields.",
+        "fix": "Declare the schema explicitly in your brief; make the agent echo it back before coding."
+      },
+      {
+        "mistake": "Trusting the UI as proof of saving.",
+        "fix": "Verify persistence by restarting, not by watching the list update on screen."
+      }
+    ],
+    "agentGuidance": "Standing rule for CRUD projects: 'Echo the schema before implementing. After implementing, demonstrate each CRUD operation against the actual store and show me the evidence.' Screenshots of UI prove nothing; queries against data prove everything.",
+    "project": {
+      "slug": "expense-tracker-v1",
+      "title": "Expense Tracker v1",
+      "brief": "The flagship Level 1 build: a single-user expense tracker with full CRUD on a real persistent store, schema declared by you, verified by restarts - not screenshots.",
+      "requirements": [
+        "Declared schema: amount (number), category (text), date (date), note (optional text)",
+        "Full CRUD: add, view list sorted newest first, edit existing, delete with confirmation",
+        "Data persists across full app restarts",
+        "Total of all expenses visible and correct",
+        "Validation from previous module applied: amount must be positive number, category required"
+      ],
+      "agentContext": "Build a single-user expense tracker with a persistent local store (SQLite file or equivalent durable option - propose options with trade-offs first). Schema fixed: amount positive number, category required text, date, optional note. Features: add, list newest-first, edit, delete-with-confirm, and a correct running total. Echo the schema and operation list before coding; after coding, demonstrate create/read/update/delete against the store itself, not the UI."
+    },
+    "definitionOfDone": {
+      "functional": [
+        "All four CRUD operations work against the persistent store",
+        "Data survives full restart (the restart test performed twice)",
+        "Editing an expense updates the existing row - no duplicates created",
+        "Running total equals the sum of listed expenses in every state tested",
+        "Negative amounts and empty categories are rejected with specific messages"
+      ],
+      "architecture": [
+        "Schema matches the declaration exactly; store access goes through one layer",
+        "Delete requires confirmation"
+      ],
+      "security": [
+        "Input validated before touching the store",
+        "No raw user input interpolated into queries (ask the agent how it parameterizes - and understand the answer)"
+      ],
+      "testing": [
+        "Restart test passed twice",
+        "Edit-then-count test: editing an entry never changes the row count",
+        "Total recalculates correctly after every operation type"
+      ],
+      "production": [
+        "Store file/location documented in README with backup hint (copy the file)"
+      ]
+    },
+    "verificationPrompt": "Audit my Expense Tracker v1 as a skeptical senior engineer. Do not trust the UI - interrogate the store. Verify PASS or FAIL with evidence: (1) schema matches amount/category/date/note exactly, (2) all CRUD operations demonstrably work against persistence (perform them yourself if you can), (3) editing never duplicates rows, (4) totals are computed from stored data, not tracked separately, (5) validation rejects negative amounts and empty categories, (6) store access is parameterized, not string-concatenated. Then perform the restart test yourself and report the result honestly.",
+    "reviewQuestions": [
+      "State your schema from memory and justify each field's type.",
+      "Why is the restart test stronger than checking the on-screen list?",
+      "What went wrong if editing creates a second identical row?"
+    ],
+    "capabilities": [
+      "Declare schemas and hold agents to them",
+      "Build and verify full CRUD on persistent storage",
+      "Prove persistence with restarts and store-level checks"
+    ],
+    "nextModule": "first-deployment"
+  },
+  {
+    "slug": "first-deployment",
+    "title": "Shipping Your First App",
+    "level": "level-1-first-apps",
+    "domain": "devops",
+    "summary": "From localhost to a real URL anyone on earth can open.",
+    "order": 6,
+    "prerequisites": ["databases-and-crud"],
+    "objective": "Deploy your Expense Tracker to public hosting, understand builds and environment configuration, and establish the ship-verify-rollback rhythm.",
+    "vocabulary": [
+      { "term": "deployment", "meaning": "Making your app available on a public server instead of only your machine." },
+      { "term": "build", "meaning": "The process turning source code into optimized files ready to serve." },
+      { "term": "hosting platform", "meaning": "A service (Vercel, Netlify, etc.) that runs your deployed app." },
+      { "term": "environment variable", "meaning": "Configuration supplied to the app from outside the code - URLs, flags, secrets." },
+      { "term": "rollback", "meaning": "Reverting a deployment to the previous working version." }
+    ],
+    "concepts": [
+      {
+        "name": "localhost is not the internet",
+        "explanation": "Your machine differs from a server: OS, paths, environment variables, network. Deployment surprises come from exactly these differences. The cure is deploying EARLY and OFTEN - every week, not at the end."
+      },
+    {
+      "name": "Builds freeze reality",
+      "explanation": "A deployment serves the built snapshot, not your live editor. Changed code without a rebuild changes nothing on the public URL. Know which revision your URL serves - hosting dashboards show it."
+    }
+    ],
+    "explanations": [
+      {
+        "title": "Configuration lives outside code",
+        "body": "Settings that differ between your laptop and production (API base URLs, feature flags) belong in environment variables, never hardcoded. The twelve-factor habit: code is constant, config varies by environment."
+      },
+      {
+        "title": "Ship, verify, roll back",
+        "body": "Deployment is not done at 'Deploy Succeeded'. Open the live URL, perform the restart test against production, check the critical flows. Broken? Roll back to the previous deployment - platforms keep history precisely for this. Shipping is a rhythm, not an event."
+      }
+    ],
+    "examples": [
+      {
+        "title": "The classic deploy surprise",
+        "description": "Works locally, crashes live: cause is usually an unset environment variable or a path case-sensitivity difference. Read the platform's runtime logs - they name the exact error."
+      },
+      {
+        "title": "Rollback in practice",
+        "description": "Bad deploy at 4pm; users see errors. Rollback to 3pm's deployment takes one click and restores service while you debug calmly. This is why platforms retain deployment history."
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Deploying once at the end of a project.",
+        "fix": "Deploy in week one, then continuously. Small diffs between deployments make problems findable."
+      },
+      {
+        "mistake": "Announcing the launch before verifying the live URL yourself.",
+        "fix": "Personal ritual: run your own Definition of Done against PRODUCTION before sharing any link."
+      }
+    ],
+    "agentGuidance": "Have your agent prepare a pre-deploy checklist specific to your stack (env vars needed, build command, health check), then walk it with you on every deploy. Agents know platform quirks; make them write the checklist down.",
+    "project": {
+      "slug": "ship-expense-tracker",
+      "title": "Expense Tracker, Shipped",
+      "brief": "Take Expense Tracker v1 to a permanent public URL, verify production with your own DoD, and practice the rollback path once on purpose.",
+      "requirements": [
+        "Live public URL serving the tracker (free tier hosting is fine)",
+        "Production restart test passes - data persists on the hosted instance",
+        "One deliberate rollback performed and documented (deploy a broken marker, verify, roll back)",
+        "README updated: live URL, platform, env vars needed (even if none), how to run locally and deployed"
+      ],
+      "agentContext": "Guide me deploying my Expense Tracker to a free hosting platform appropriate for its stack. Prepare the pre-deploy checklist first (required env vars, build command, expected failure modes). After deploy, walk me through verifying production with my DoD, then coach one deliberate rollback rehearsal: deploy a visible broken marker, confirm it live, roll back, confirm restoration. Finally update the README with the live URL and run/deploy instructions."
+    },
+    "definitionOfDone": {
+      "functional": [
+        "Public URL serves the tracker and all CRUD flows work there",
+        "Production restart test passed on the hosted instance",
+        "Rollback rehearsal completed: broken marker deployed, verified, reverted, restoration verified"
+      ],
+      "architecture": [
+        "Environment-specific values come from environment variables, not hardcoded strings"
+      ],
+      "security": [
+        "No secrets in the deployed bundle or the repository",
+        "Hosting dashboard access protected by strong unique credentials"
+      ],
+      "testing": [
+        "Full DoD executed against PRODUCTION, not localhost",
+        "Platform runtime logs checked once and understood"
+      ],
+      "production": [
+        "README documents live URL, platform, env vars, local-run and deploy steps",
+        "Rollback method known and rehearsed (not theoretical)"
+      ]
+    },
+    "verificationPrompt": "Perform a production-readiness review of my shipped Expense Tracker. Visit the live URL yourself if you can. Verify PASS or FAIL with evidence: (1) all CRUD flows function on the public URL, (2) persistence works in production (restart test), (3) README lists live URL, platform, env vars and run instructions accurately, (4) no secrets in the deployed bundle or repo history, (5) the rollback rehearsal artifacts (marker deploy + revert) are documented. Then list the two most likely production failure modes for THIS app and how you detected or mitigated each.",
+    "reviewQuestions": [
+      "Why deploy weekly instead of once at the end?",
+      "Your live site breaks after a deploy - what are your first three moves?",
+      "Name two settings that belong in environment variables, not code."
+    ],
+    "capabilities": [
+      "Ship a real app to a public URL and verify it there",
+      "Keep configuration out of code",
+      "Execute the ship-verify-rollback rhythm under control"
+    ],
+    "nextModule": "servers-and-backends"
+  },
+  {
+    "slug": "servers-and-backends",
+    "title": "Servers and Backends",
+    "level": "level-2-real-apps",
+    "domain": "backend",
+    "summary": "Your code running on someone else's request - routes, handlers and honest status codes.",
+    "order": 1,
+    "prerequisites": ["first-deployment"],
+    "objective": "Run a backend server locally, explain how routes map to handler functions, and expose a real JSON API that answers with correct status codes.",
+    "vocabulary": [
+      { "term": "server", "meaning": "A long-running program that listens for requests and sends responses." },
+      { "term": "route", "meaning": "The pairing of an HTTP method and URL path with the function that handles it." },
+      { "term": "handler", "meaning": "The function that runs when a request hits its route." },
+      { "term": "port", "meaning": "The numbered door on a machine where a server listens, like 3000." },
+      { "term": "request method", "meaning": "The verb of a request - GET reads, POST creates, PUT/PATCH updates, DELETE removes." }
+    ],
+    "concepts": [
+      {
+        "name": "A server is just your program, listening",
+        "explanation": "Strip the mystique: a backend is code that starts, binds to a port, and loops forever answering requests. You have run programs since Level 0; this one happens to answer the phone."
+      },
+      {
+        "name": "Routes are a switchboard",
+        "explanation": "GET /expenses goes to listExpenses(), POST /expenses goes to createExpenses(). Same URL, different methods, different jobs. When you can enumerate an API's route table from memory, you understand the app's surface area."
+      }
+    ],
+    "explanations": [
+      {
+        "title": "Status codes are your API's body language",
+        "body": "200 created-or-found, 400 you sent garbage, 401 you are not logged in, 403 you may not, 404 no such thing, 500 I broke. An API that returns 200 for everything - including failures - is lying to every client that trusts it."
+      },
+      {
+        "title": "Why backends hold the power",
+        "body": "Frontend code ships to strangers; backend code stays home. Secrets, real validation and database access live server-side precisely because nobody can tamper with what they cannot touch."
+      }
+    ],
+    "examples": [
+      {
+        "title": "One handler, dissected",
+        "description": "POST /expenses receives JSON, validates amount is a positive number, asks the store layer to save, replies 201 with the saved record - or 400 naming exactly which field failed. Four steps, same skeleton as every handler you will ever review."
+      },
+      {
+        "title": "curl is your UI",
+        "description": "curl http://localhost:3000/expenses exercises the API directly, bypassing any interface. Backend developers live in this mode because UIs hide what the API actually said."
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Verifying API behavior only through the app's screens.",
+        "fix": "Exercise endpoints directly with curl or an agent-run script; the screen is one consumer, not the contract."
+      },
+      {
+        "mistake": "Returning 200 with an error message inside the body.",
+        "fix": "Match status to outcome. Clients branch on codes; make them truthful."
+      }
+    ],
+    "agentGuidance": "Require your agent to print the full route table at startup and provide a sample curl for each route in the README. A route table you can read is a surface you can defend and test.",
+    "project": {
+      "slug": "expense-api",
+      "title": "Expense API",
+      "brief": "Rebuild the tracker's brain as a standalone HTTP API - no screens, pure endpoints - so every future module can build on a real, testable service.",
+      "requirements": [
+        "Endpoints: GET /health, GET /expenses, POST /expenses, PUT /expenses/:id, DELETE /expenses/:id",
+        "POST/PUT validate amount positive number and category required; violations return 400 naming the field",
+        "Unknown routes return 404; DELETE on missing id returns 404",
+        "README documents every route with a working curl example",
+        "Data persists across server restarts using the store layer pattern from Level 1"
+      ],
+      "agentContext": "Build a minimal JSON API server for expenses: the five listed endpoints with correct status codes (200/201/400/404), server-side validation rejecting bad payloads with field-specific messages, persistent storage through a dedicated store layer, and a README route table with curl examples per endpoint. Print the route table at startup. No authentication yet - that arrives next module; keep handlers structured so auth middleware can slot in cleanly."
+    },
+    "definitionOfDone": {
+      "functional": [
+        "All five endpoints respond correctly to valid requests",
+        "Invalid POST/PUT payloads return 400 naming each offending field",
+        "Missing resources return 404, not crashes or empty 200s",
+        "Restart test: created expense still present after server restart"
+      ],
+      "architecture": [
+        "Route handlers stay thin; storage logic lives in one store layer",
+        "Error responses share one consistent JSON shape"
+      ],
+      "security": [
+        "Server-side validation rejects malformed JSON and wrong types outright",
+        "Port and environment-specific values come from env vars, not hardcoded strings"
+      ],
+      "testing": [
+        "A scripted curl pass exercises happy path AND failure paths end to end",
+        "Every documented curl example was executed successfully once"
+      ],
+      "production": [
+        "Start command and full route table documented in README"
+      ]
+    },
+    "verificationPrompt": "Review my Expense API as a backend reviewer who does not trust documentation. Start the server yourself if possible. Verify PASS or FAIL with evidence: (1) all five routes exist and behave as documented, (2) malformed and rule-violating payloads return 400 with field-naming messages, (3) unknown routes and missing ids return clean 404s, (4) error responses share one consistent shape across all endpoints, (5) storage survives a restart, (6) handlers are thin with logic in a store layer. Then attack it with five hostile requests - wrong content types, huge payloads, negative numbers, missing fields - and report exactly how each was handled.",
+    "reviewQuestions": [
+      "Recite your API's route table from memory, method plus path plus purpose.",
+      "What should PUT /expenses/999 return if 999 does not exist, and why not 200?",
+      "Why does validation belong in the server even though the form already checks?"
+    ],
+    "capabilities": [
+      "Build and read a real JSON API's route table",
+      "Demand truthful status codes from every endpoint",
+      "Test backends directly instead of through screens"
+    ],
+    "nextModule": "relational-data-modeling"
+  },
+  {
+    "slug": "relational-data-modeling",
+    "title": "Relational Data Modeling",
+    "level": "level-2-real-apps",
+    "domain": "databases",
+    "summary": "Tables that reference each other - foreign keys, joins and migrations that do not break things.",
+    "order": 2,
+    "prerequisites": ["servers-and-backends"],
+    "objective": "Model multi-user data as related tables, enforce integrity with foreign keys, evolve schema safely through migrations, and prove relationships with join queries.",
+    "vocabulary": [
+      { "term": "primary key", "meaning": "The unique id identifying each row in a table." },
+      { "term": "foreign key", "meaning": "A column referencing another table's primary key, linking rows together." },
+      { "term": "one-to-many", "meaning": "A relation where one row owns many others - one user, many expenses." },
+      { "term": "join", "meaning": "A query combining rows from related tables." },
+      { "term": "migration", "meaning": "A versioned, repeatable script that changes the database schema." },
+      { "term": "referential integrity", "meaning": "The guarantee that a foreign key always points at a real row." }
+    ],
+    "concepts": [
+      {
+        "name": "Reference, never duplicate",
+        "explanation": "When expenses belong to users, each expense stores user_id - not a copied username. One source of truth: change the username once, everywhere correct. Duplicated facts drift out of sync and lie eventually."
+      },
+      {
+        "name": "Migrations are version control for schema",
+        "explanation": "Schema changes ship as ordered scripts that run the same way everywhere - your laptop, teammates, production. Hand-tweaking a live database outside migrations is how environments silently diverge."
+      }
+    ],
+    "explanations": [
+      {
+        "title": "From flat file to relations",
+        "body": "Level 1 stored expenses anonymously because there were no users. Multi-user changes everything: WHOSE expense becomes part of the data itself. That single foreign key unlocks permissions, filtering, and every team feature you will ever build."
+      },
+      {
+        "title": "Integrity at the database level",
+        "body": "App code can have bugs; constraints cannot be bypassed by a forgotten check. A foreign key constraint makes an orphan row physically impossible - the database itself refuses. Defense in depth starts with letting the storage layer carry some of the weight."
+      }
+    ],
+    "examples": [
+      {
+        "title": "The join that proves the model",
+        "description": "SELECT expenses.amount, users.name FROM expenses JOIN users ON expenses.user_id = users.id - one query, both tables, each expense displayed beside its owner's name. If your join works, your keys are right."
+      },
+      {
+        "title": "Constraint refusing an orphan",
+        "description": "Inserting an expense whose user_id is 999 when no such user exists fails with a foreign key error. That refusal is a feature: corrupted relationships cannot enter the database even through buggy code."
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Trusting the application to keep references valid without DB constraints.",
+        "fix": "Declare foreign key constraints in migrations; let the database refuse impossible relationships."
+      },
+      {
+        "mistake": "Editing schema by hand in a tool while migrations say otherwise.",
+        "fix": "Every schema change goes through a migration file - no exceptions, including 'quick experiments'."
+      }
+    ],
+    "agentGuidance": "Make your agent draft the ER picture in text before coding: tables, columns, types, which columns reference which, and what cascades on delete. Approve the picture; the migration files then become mechanical transcription.",
+    "project": {
+      "slug": "data-model-upgrade",
+      "title": "Data Model Upgrade",
+      "brief": "Migrate the Expense API to relational multi-user storage: users table, expenses owned via foreign key, migration scripts, and join-proofs that relationships resolve correctly.",
+      "requirements": [
+        "users table (id, email unique, name, created_at) and expenses.user_id foreign key added via migration scripts",
+        "Foreign key constraint actively prevents orphan expenses",
+        "Migration runs cleanly twice: once on fresh database, once upgrading existing Level-1 data",
+        "New endpoint GET /users/:id/expenses returns that user's expenses with their name via a join",
+        "Rollback path: down-migration or documented restore procedure exists and was tested"
+      ],
+      "agentContext": "Upgrade my Expense API's storage to relational multi-user modeling. Write proper up/down migrations creating users and adding expenses.user_id with a foreign key constraint. Seed two demo users and reassign existing expenses sensibly during upgrade. Add GET /users/:id/expenses performing a real join returning expense rows plus owner name. Show me the ER outline first; implement only after approval. Prove constraint enforcement by attempting an orphan insert and showing me the database's refusal."
+    },
+    "definitionOfDone": {
+      "functional": [
+        "Fresh-database migration path runs clean start to finish",
+        "Existing-data upgrade path preserves records while adding ownership",
+        "Orphan insert attempt fails with a database-level foreign key error",
+        "Join endpoint returns expense rows enriched with owner name correctly"
+      ],
+      "architecture": [
+        "All schema lives in versioned migrations; zero hand-edited schema state",
+        "Down-migration tested and restores pre-upgrade schema"
+      ],
+      "security": [
+        "Referential integrity enforced BY THE DATABASE, verified by direct attempt"
+      ],
+      "testing": [
+        "Both migration paths executed for real, outputs captured",
+        "Orphan-insert refusal demonstrated against the live database"
+      ],
+      "production": [
+        "README documents the schema diagram in text and the migrate/rollback commands"
+      ]
+    },
+    "verificationPrompt": "Audit my Data Model Upgrade as a database engineer. Inspect migrations and run them yourself if able. Verify PASS or FAIL with evidence: (1) migrations are versioned and include a tested rollback, (2) users and expenses relate through a real enforced foreign key, (3) an orphan insert genuinely fails at the database level, (4) the join endpoint returns owner-enriched rows correctly, (5) existing data survived the upgrade intact. Then try three creative corruptions - duplicate email, self-referencing nonsense, deleting a referenced user - and report which the database refused versus which slipped through.",
+    "reviewQuestions": [
+      "Draw your schema from memory: tables, key columns, arrows between them.",
+      "What breaks first if foreign keys were removed but app code stayed the same?",
+      "Why must schema changes ship as migrations rather than manual edits?"
+    ],
+    "capabilities": [
+      "Design relational schemas with enforced integrity",
+      "Evolve databases safely through tested migrations",
+      "Prove relationships with joins instead of assumptions"
+    ],
+    "nextModule": "server-side-trust"
+  },
+  {
+    "slug": "server-side-trust",
+    "title": "Server-Side Validation and Errors",
+    "level": "level-2-real-apps",
+    "domain": "backend",
+    "summary": "Never trust the client, fail loudly inside, speak clearly outside - and log the whole story.",
+    "order": 3,
+    "prerequisites": ["relational-data-modeling"],
+    "objective": "Harden the API boundary: whitelist-validate everything arriving over HTTP, return uniform error envelopes, handle failures deliberately, and log enough to diagnose tomorrow's bug today.",
+    "vocabulary": [
+      { "term": "payload", "meaning": "The data carried inside a request or response body." },
+      { "term": "whitelist validation", "meaning": "Accepting only known-good values and shapes, rejecting everything else by default." },
+      { "term": "error envelope", "meaning": "One consistent JSON shape every error response uses." },
+      { "term": "log level", "meaning": "Severity tag on a log line - info, warn, error - enabling filtering later." },
+      { "term": "stack trace", "meaning": "The chain of function calls leading to an error - gold for diagnosis." }
+    ],
+    "concepts": [
+      {
+        "name": "The client is an adversary's playground",
+        "explanation": "Anything delivered to the browser can be modified, replayed or skipped entirely. curl needs no form and respects no rules. Server-side checks are not redundancy - they are the only checks that exist."
+      },
+      {
+        "name": "Fail loud inside, speak calm outside",
+        "explanation": "Internally, errors deserve full stack traces and noisy logs. Externally, clients get disciplined envelopes: what happened, in their vocabulary, minus internal details like file paths and queries. Leaked internals are reconnaissance gifts."
+      }
+    ],
+    "explanations": [
+      {
+        "title": "Bypassing the browser in ten seconds",
+        "body": "Open a terminal, POST invalid JSON straight at the API. Whatever frontend validation existed is now irrelevant. This single exercise - doing it deliberately - permanently installs the never-trust-client reflex."
+      },
+      {
+        "title": "Logs are tomorrow's memory",
+        "body": "Three weeks from now, someone will ask why orders failed at 3am. The answer will exist only if today's code logged request identity, action and outcome - WITHOUT passwords, tokens or personal payloads. Logging secrets converts your log file into a liability."
+      }
+    ],
+    "examples": [
+      {
+        "title": "The uniform envelope",
+        "description": "Every failure answers { \"error\": { \"code\": \"VALIDATION\", \"message\": \"amount must be positive\" } }. Clients learn ONE parsing rule for ALL failures. Consistency here is API kindness."
+      },
+      {
+        "title": "Good line versus bad line",
+        "description": "Good: WARN POST /expenses 400 ip=1.2.3.4 reason=amount_negative. Bad: logging the full payload including someone's password field. Same event; one is diagnosable, the other is a breach."
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Empty catch blocks swallowing errors into silence.",
+        "fix": "Every caught error gets logged with context and produces a deliberate response - silence is never acceptable."
+      },
+      {
+        "mistake": "Validating only the happy shape (present and non-empty) while ignoring type absurdities.",
+        "fix": "Whitelist-check types and bounds too: amount must be a NUMBER, not a string claiming to be one."
+      }
+    ],
+    "agentGuidance": "Commission an adversarial suite: ask your agent to generate fifteen hostile requests - wrong types, giant strings, nested objects where scalars belong, duplicated fields, unicode abuse - and implement handling for each BEFORE looking at its code. Reviewing a defense plan beats reviewing defensive code line by line.",
+    "project": {
+      "slug": "trust-nothing",
+      "title": "Trust Nothing",
+      "brief": "Harden the Expense API into a paranoid, professional boundary: whitelist validation on every input, uniform error envelope everywhere, deliberate failure handling, and honest logs that leak nothing.",
+      "requirements": [
+        "Every endpoint validates method, content type, payload shape, field types and bounds via shared whitelist rules",
+        "All error responses use the single documented envelope shape",
+        "Unhandled exceptions produce 500 envelope + logged stack trace without crashing the server",
+        "Request logging captures method, path, status and duration - never passwords or payload contents",
+        "An adversarial request suite (10+ hostile requests) lives in the repo with expected outcomes documented"
+      ],
+      "agentContext": "Harden my Expense API. Centralize whitelist validation so every route validates through one layer; adopt the error envelope everywhere including 404s and unhandled exceptions; add request logging that records method/path/status/duration but explicitly redacts bodies; write the adversarial suite as a runnable script with expected-vs-actual outcomes. Show me the validation rule table before implementing. The server must survive every attack without restarting."
+    },
+    "definitionOfDone": {
+      "functional": [
+        "All adversarial suite requests receive correct statuses and envelope-shaped bodies",
+        "Server survives every hostile request without crash or hang",
+        "Unhandled-error path returns 500 envelope and logs a trace"
+      ],
+      "architecture": [
+        "Validation flows through one shared layer, not per-route copy-paste",
+        "Envelope helper used everywhere - zero ad-hoc error JSON"
+      ],
+      "security": [
+        "Type-checked whitelist validation rejects string-numbers, nested junk and oversized inputs",
+        "Zero secret or sensitive payload material appears in any log line (verified by grep)",
+        "Error messages reveal no stack traces, paths or queries to clients"
+      ],
+      "testing": [
+        "Adversarial suite executed green end to end",
+        "Grep-audit of logs confirmed no payload leakage"
+      ],
+      "production": [
+        "Envelope contract and log format documented in README"
+      ]
+    },
+    "verificationPrompt": "Red-team my Trust Nothing hardening. Run the adversarial suite yourself, then go beyond it. Verify PASS or FAIL with evidence: (1) every hostile input met the expected status and envelope, (2) no response leaked stacks, paths, queries or schema details, (3) logs contain zero password/payload material, (4) an induced unhandled exception produced 500-plus-trace-log without downtime, (5) validation truly centralizes in one layer. Then invent five attacks my suite missed, run them, and honestly report which ones drew blood.",
+    "reviewQuestions": [
+      "Demonstrate bypassing your own frontend validation with curl.",
+      "Which three fields must EVERY log line carry, and which class of data must none carry?",
+      "Why is one error envelope shape a security property, not just tidiness?"
+    ],
+    "capabilities": [
+      "Treat every inbound byte as hostile and validate accordingly",
+      "Design error contracts clients can rely on",
+      "Log forensically useful information without creating liabilities"
+    ],
+    "nextModule": "authentication"
+  },
+  {
+    "slug": "authentication",
+    "title": "Authentication",
+    "level": "level-2-real-apps",
+    "domain": "security",
+    "summary": "Proving who someone is - hashed passwords, sessions and the habits that keep accounts safe.",
+    "order": 4,
+    "prerequisites": ["server-side-trust"],
+    "objective": "Implement real login: register and authenticate users with properly hashed passwords, maintain sessions via secure cookies, protect routes, and avoid the classic credential-storage mistakes.",
+    "vocabulary": [
+      { "term": "authentication", "meaning": "Verifying WHO someone is - the login half of security." },
+      { "term": "password hash", "meaning": "A one-way scramble of a password; the original cannot be recovered from it." },
+      { "term": "salt", "meaning": "Random data mixed into hashing so identical passwords produce different hashes." },
+      { "term": "session", "meaning": "Server memory of a logged-in user, referenced by a cookie the browser presents." },
+      { "term": "httpOnly cookie", "meaning": "A cookie JavaScript cannot read - stolen only via far harder attack classes." }
+    ],
+    "concepts": [
+      {
+        "name": "Hash, never encrypt, never store",
+        "explanation": "Encryption is reversible with a key; hashes are not reversible at all. Passwords get hashed WITH a salt using a purpose-built slow algorithm. If you can ever show a user their password back, the design is already broken."
+      },
+      {
+        "name": "Sessions turn login into memory",
+        "explanation": "Passwords travel once, at login. The session cookie then says 'this is user 7' on every later request. The server keeps the mapping; the cookie carries only an opaque id - httpOnly so page scripts cannot steal it."
+      }
+    ],
+    "explanations": [
+      {
+        "title": "Generic errors are a feature",
+        "body": "'Invalid email or password' for BOTH wrong-email and wrong-password cases. The moment your app reveals 'no such email', attackers gain a free list of registered accounts - half the work of breaking in, donated by you."
+      },
+      {
+        "title": "Login endpoints get special suspicion",
+        "body": "Login is the internet's front door and favorite target: credential-stuffing replays stolen passwords millions of times. Even a simple rate limit - five attempts per minute per account - turns industrial attacks into impractical ones."
+      }
+    ],
+    "examples": [
+      {
+        "title": "Same password, different hashes",
+        "description": "Register two accounts with password123 and inspect the database: two completely different stored values. That is salted hashing proving itself - a leaked hash reveals nothing about sibling accounts."
+      },
+      {
+        "title": "The protected route reflex",
+        "description": "Anonymous request to /expenses gets 401 with the error envelope. Every protected route asks the session 'who is this?' before anything else - uniformly, via one middleware, not scattered ifs."
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Rolling custom crypto or 'just encoding' passwords (base64 is NOT security).",
+        "fix": "Use a standard, boring, well-tested hashing library. Cryptographic creativity is how breaches happen."
+      },
+      {
+        "mistake": "Trusting a userId sent in the request body or URL.",
+        "fix": "Identity comes from the VERIFIED session server-side, nowhere else. Anything else is a costume party invitation."
+      }
+    ],
+    "agentGuidance": "Before any auth code, require your agent to answer in writing: which hashing library and parameters, where sessions live, what the cookie flags are, and what the generic error message is. Four answers reviewed up front prevent four breach classes later.",
+    "project": {
+      "slug": "login-gate",
+      "title": "Login Gate",
+      "brief": "Add real authentication to the Expense API: registration, login, logout, session cookies, protected routes - with storage you would be comfortable showing a security auditor.",
+      "requirements": [
+        "POST /register hashes passwords with a standard salted library before storage",
+        "POST /login sets an httpOnly session cookie; GET /logout invalidates the session server-side",
+        "All /expenses routes require a valid session: anonymous access gets 401 envelope",
+        "Wrong-password and unknown-email return IDENTICAL generic responses",
+        "Session expiry configured (not infinite); secret comes from environment, never committed",
+        "Database inspection shows hashes only - zero plaintext anywhere"
+      ],
+      "agentContext": "Add authentication to my Expense API. Use a mainstream salted-password hashing library; sessions persisted server-side behind an httpOnly, secure-flagged cookie; expiry configured via env var. Protect every expense route via one auth middleware. Generic credential errors only. Before writing code, answer me in writing: library chosen and why, session storage location, cookie flags, expiry default, exact generic error message. Then implement."
+    },
+    "definitionOfDone": {
+      "functional": [
+        "Full journey works: register, logout, login, access protected route",
+        "Anonymous access to protected routes returns 401 envelope",
+        "Logout invalidates server-side: old cookie reuse fails after logout",
+        "Expired sessions rejected identically to absent ones"
+      ],
+      "architecture": [
+        "Auth enforced through one middleware layer, not scattered checks",
+        "Session secret sourced from environment, absent from repo and logs"
+      ],
+      "security": [
+        "Stored credentials are salted hashes - plaintext audit of the store returns nothing usable",
+        "Identical passwords across two accounts yield different stored hashes",
+        "Unknown-email and wrong-password responses are byte-identical",
+        "Cookie flags include httpOnly and secure; no token ever appears in URLs or logs",
+        "Login endpoint rate-limited (documented limit, enforced behavior)"
+      ],
+      "testing": [
+        "Scripted journey test: register, access-denied-anonymously, login, access-granted, logout, access-denied-again",
+        "Plaintext audit performed against the actual store file/database"
+      ],
+      "production": [
+        "Expiry policy and rate-limit values documented in README"
+      ]
+    },
+    "verificationPrompt": "Perform a security review of my Login Gate as an application security engineer. Attempt these specifically: (1) register two accounts with identical passwords and compare stored hashes, (2) probe unknown-email vs wrong-password and diff the responses byte for byte, (3) reuse a pre-logout cookie after logout, (4) hunt for tokens in URLs and logs, (5) hammer the login endpoint past its documented limit. For each: report observed behavior, PASS or FAIL against my Definition of Done, and the fix if FAIL.",
+    "reviewQuestions": [
+      "Explain to a friend why you could never email them their forgotten password in a well-built system.",
+      "Where does your server get 'who is asking' from on each protected request?",
+      "Why do generic login errors protect your users?"
+    ],
+    "capabilities": [
+      "Implement credential handling that survives an auditor's visit",
+      "Reason about sessions, cookies and expiry as one mechanism",
+      "Spot and refuse plaintext-password designs instantly"
+    ],
+    "nextModule": "authorization-and-roles"
+  },
+  {
+    "slug": "authorization-and-roles",
+    "title": "Authorization and Roles",
+    "level": "level-2-real-apps",
+    "domain": "security",
+    "summary": "Who may do what - ownership checks, roles and the least-privilege mindset.",
+    "order": 5,
+    "prerequisites": ["authentication"],
+    "objective": "Enforce per-user data isolation and role-based permissions server-side, centralize authorization decisions, and internalize that hiding buttons is not access control.",
+    "vocabulary": [
+      { "term": "authorization", "meaning": "Deciding WHAT an authenticated identity may do - the other half of security." },
+      { "term": "ownership check", "meaning": "Confirming a record belongs to the requester before operating on it." },
+      { "term": "role", "meaning": "A named bundle of permissions - admin, member - assigned to users." },
+      { "term": "IDOR", "meaning": "Insecure Direct Object Reference: reaching others' records by guessing URLs or ids." },
+      { "term": "least privilege", "meaning": "Granting the minimum permissions needed - nothing extra 'for later'." }
+    ],
+    "concepts": [
+      {
+        "name": "Authentication is not authorization",
+        "explanation": "Logging in proves identity; it grants NOTHING by itself. Every operation re-asks: may THIS user act on THAT record? The question is asked fresh on every request, forever, no exceptions."
+      },
+      {
+        "name": "Guards are code, not CSS",
+        "explanation": "Hidden menu items and disabled buttons are decoration. The API is the castle: if DELETE /expenses/43 lacks an ownership check, anyone logged-in deletes anyone's data by typing the URL. Authorization lives where the data lives."
+      }
+    ],
+    "explanations": [
+      {
+        "title": "IDOR: the one-change exploit",
+        "body": "Authenticated user changes /expenses/41 to /expenses/42 and reads a stranger's data. No hacking tools - one edited digit. Prevention: every fetch/update/delete query includes WHERE user_id = current_session_user. Ownership rides along with every query, automatically."
+      },
+      {
+        "title": "Deny by default",
+        "body": "New routes start forbidden until explicitly permitted. The reverse - open until someone remembers to restrict - guarantees eventual leaks. Whitelist thinking applies to permissions exactly as it did to input."
+      }
+    ],
+    "examples": [
+      {
+        "title": "Two roles, visible difference",
+        "description": "Owner role manages workspace members; member role sees tasks. The permission matrix is three lines long - and every line maps to one guard function. Small matrices stay auditable; sprawling ones rot."
+      },
+      {
+        "title": "Centralized guard in action",
+        "description": "requireOwnership('expense') runs before update/delete handlers. One function, one place to audit, applied everywhere via route wiring. Scattered if-checks across twenty handlers WILL miss one eventually."
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Reading the target record first, checking ownership second - or trusting an id from the request body.",
+        "fix": "Identity comes from the session; scope every query by it. Fetch-with-filter beats fetch-then-hope."
+      },
+      {
+        "mistake": "Granting broad permissions 'temporarily' during development.",
+        "fix": "Develop with the real permission matrix from day one; temporary openings become permanent breaches."
+      }
+    ],
+    "agentGuidance": "Have your agent emit the full permission matrix as a table - role x action x allowed - before implementation, then wire every route through named guard functions matching that matrix. The matrix becomes your audit artifact and your test checklist simultaneously.",
+    "project": {
+      "slug": "private-ledger",
+      "title": "Private Ledger",
+      "brief": "Turn the tracker into a truly multi-user app: total data isolation between users, an admin/member role split, centralized guards - proven by an isolation matrix you can demo on demand.",
+      "requirements": [
+        "Each user's expenses fully isolated: reads, updates, deletes scoped by session identity in every query",
+        "Roles implemented: owner (manages members, sees workspace summary) vs member (owns only own data)",
+        "All guards centralized in named middleware/functions mapped to a written permission matrix",
+        "Unauthorized cross-access attempts return 403 envelope and are logged with actor and target",
+        "Permission matrix documented in README and matches implementation exactly"
+      ],
+      "agentContext": "Convert my authenticated Expense API into a private multi-user ledger. Add roles (owner, member) with a written permission matrix BEFORE implementation; centralize all authorization in named guard functions wired per-route; scope every store query by session user id; log denied attempts with actor and target resource. Demo isolation with two seeded users afterward: every cross-access attempt must fail with 403."
+    },
+    "definitionOfDone": {
+      "functional": [
+        "User A sees only user A's expenses; same for B - verified live with seeded accounts",
+        "Member attempting owner-only action receives 403 envelope",
+        "Direct-id guessing at another user's records fails on read, update AND delete"
+      ],
+      "architecture": [
+        "Every protected route passes through a named guard; matrix-to-route mapping is one-to-one",
+        "Ownership filters live INSIDE store queries, not after-fetch checks"
+      ],
+      "security": [
+        "No endpoint trusts client-supplied identity fields",
+        "Denied attempts logged with actor id, target and timestamp - no payload leakage",
+        "New-route default is deny; matrix additions are explicit diffs"
+      ],
+      "testing": [
+        "Isolation matrix scripted: 2 users x all operations x cross-access attempts, all outcomes asserted",
+        "Guard coverage checked: zero protected routes bypass the guard layer"
+      ],
+      "production": [
+        "README carries the permission matrix and guard inventory"
+      ]
+    },
+    "verificationPrompt": "Attack my Private Ledger's authorization as a hostile insider. Using two seeded accounts, attempt: reading user B's expenses as user A by id-guessing, updating B's record via crafted requests, deleting B's data, escalating from member to owner via request-body manipulation, and hitting owner-only routes as member. For each attempt report: HTTP result, whether anything leaked, PASS or FAIL against the DoD. Then diff my README permission matrix against the actual route wiring and name any guard that exists in one but not the other.",
+    "reviewQuestions": [
+      "State the difference between authentication and authorization in one sentence each.",
+      "Walk through how IDOR would work against an app lacking ownership checks.",
+      "Why is deny-by-default cheaper than cleaning up over-granted access later?"
+    ],
+    "capabilities": [
+      "Design and enforce role-based permission matrices",
+      "Prevent IDOR structurally, query-by-query",
+      "Audit authorization as a system, not scattered checks"
+    ],
+    "nextModule": "testing-your-app"
+  },
+  {
+    "slug": "testing-your-app",
+    "title": "Testing Your App",
+    "level": "level-2-real-apps",
+    "domain": "testing",
+    "summary": "Executable proof that your app behaves - unit tests, integration tests and calm failure reading.",
+    "order": 6,
+    "prerequisites": ["authorization-and-roles"],
+    "objective": "Build an automated safety net around critical behavior, direct agents to write meaningful tests, review them skeptically, and treat a red suite as the emergency it is.",
+    "vocabulary": [
+      { "term": "unit test", "meaning": "Checks one small piece of logic in isolation - a function with known inputs and outputs." },
+      { "term": "integration test", "meaning": "Checks pieces working TOGETHER - a request traveling through auth, guards and store." },
+      { "term": "assertion", "meaning": "The statement inside a test that must be true - the actual check." },
+      { "term": "fixture", "meaning": "Reusable known test data so tests start from predictable states." },
+      { "term": "flaky test", "meaning": "A test that passes and fails without code changes - trust erosion incarnate." }
+    ],
+    "concepts": [
+      {
+        "name": "Tests are executable DoD",
+        "explanation": "Your Definition of Done lists behaviors; tests PROVE them on every run. Manual verification decays and gets skipped; suites execute identically forever. The best DoD items convert into test names almost word for word."
+      },
+      {
+        "name": "Meaningful beats exhaustive",
+        "explanation": "Ten tests covering money math edge cases, permission denials and the auth journey outweigh two hundred trivial assertions. Test what BREAKS matters: totals rounding wrong, guards leaking, sessions surviving logout."
+      }
+    ],
+    "explanations": [
+      {
+        "title": "Arrange, act, assert",
+        "body": "Every test reads the same: ARRANGE known state (seeded user, two expenses), ACT once (call the function or endpoint), ASSERT the outcome (total equals X). Deviation from this rhythm is usually a test trying to do too much."
+      },
+      {
+        "title": "The mutation experiment",
+        "body": "Want to know if tests actually bite? Break the code ON PURPOSE - flip a comparison sign - and rerun. Suite stays green? Your tests decorate, they do not defend. Fix the tests, revert the sabotage, keep the lesson."
+      }
+    ],
+    "examples": [
+      {
+        "title": "A unit test worth keeping",
+        "description": "calculateTotal([100.10, 200.20, 300.30]) asserts exactly 600.60 - catching float-rounding bugs that manual testing routinely misses. Money math is unit-test heaven: tiny, pure, catastrophic when wrong."
+      },
+      {
+        "title": "An integration test worth keeping",
+        "description": "Register, login as user A, attempt to delete user B's expense, assert 403 AND that B's expense still exists. One test, three layers, the exact promise of Level 2 proven executable."
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Chasing coverage percentages with hollow tests that assert nothing meaningful.",
+        "fix": "Cover critical BEHAVIORS; ignore the percentage. Coverage reports measure execution, not protection."
+      },
+      {
+        "mistake": "Leaving failing tests red while continuing development.",
+        "fix": "Red suite means STOP: fix or explicitly disable-with-issue. A red suite everyone ignores is worse than no suite."
+      }
+    ],
+    "agentGuidance": "Flip the delegation: ask your agent to WRITE TESTS FIRST from your DoD list, watch them fail, THEN implement until green. Reviewing test names against the DoD is the fastest spec-review you will ever do - and gaps show up as missing tests, not missing features discovered in production.",
+    "project": {
+      "slug": "safety-net",
+      "title": "Safety Net",
+      "brief": "Wrap the Private Ledger in genuine automated protection: unit tests on money math and validation, integration tests on the auth journey and cross-user isolation - then prove the net catches falls with a deliberate sabotage experiment.",
+      "requirements": [
+        "Unit tests cover total calculation (including float-rounding cases) and every validation rule",
+        "Integration tests cover the full auth journey and the cross-user isolation matrix",
+        "Suite runs green with ONE documented command",
+        "Every test name states the BEHAVIOR being proven, readable as sentences",
+        "Mutation experiment performed and documented: sabotage a comparison, suite went red, reverted"
+      ],
+      "agentContext": "Write a test suite for my Private Ledger BEFORE touching implementation details: unit tests for total math (include tricky decimal cases) and each validation rule; integration tests for register-login-access-logout and the two-user isolation matrix including deny assertions. Tests-first: show me failing tests derived from my DoD, then make them pass against my existing code - where they already pass, verify they are actually asserting (not vacuous). One command must run everything."
+    },
+    "definitionOfDone": {
+      "functional": [
+        "At least eight meaningful tests spanning units and integrations as specified",
+        "Single command runs entire suite green in under a minute",
+        "Deny paths asserted explicitly: unauthorized attempts expect 403/401, not merely non-success"
+      ],
+      "architecture": [
+        "Shared fixtures seed known states; zero copy-pasted setup blocks",
+        "Tests organized by type: unit separated from integration clearly"
+      ],
+      "security": [],
+      "testing": [
+        "Mutation experiment documented: sabotaged code turned suite red, revert restored green",
+        "Float-edge case in money math demonstrably caught (would fail against naive addition)"
+      ],
+      "production": [
+        "Test command documented in README as the pre-deploy ritual"
+      ]
+    },
+    "verificationPrompt": "Assess my Safety Net suite as a skeptical QA lead. Verify PASS or FAIL with evidence: (1) eight-plus tests exist and names read as behavior statements, (2) money math includes a genuine float-rounding edge case, (3) deny paths assert specific status codes, (4) fixtures prevent setup duplication, (5) one-command execution works as documented. Then perform your OWN mutation test - sabotage something I did not - report whether the suite caught it, and identify the least valuable test in the suite with reasoning.",
+    "reviewQuestions": [
+      "Convert three DoD items from your last project into test names.",
+      "Why is a flaky test more dangerous than no test at all?",
+      "What did the mutation experiment teach you about YOUR suite specifically?"
+    ],
+    "capabilities": [
+      "Delegate tests-first development and review them meaningfully",
+      "Protect critical behavior with executable proofs",
+      "Keep suites green, fast and trustworthy over time"
+    ],
+    "nextModule": "ship-team-task-manager"
+  },
+  {
+    "slug": "ship-team-task-manager",
+    "title": "Ship: Team Task Manager",
+    "level": "level-2-real-apps",
+    "domain": "devops",
+    "summary": "The Level 2 finale - specify, build, verify and deploy a real multi-user product with roles.",
+    "order": 7,
+    "prerequisites": ["testing-your-app"],
+    "objective": "Combine every Level 2 skill into one delivery: write the brief first, direct the full build of a multi-user task manager with roles and guarded APIs, keep the suite green, and deploy it publicly with demo accounts.",
+    "vocabulary": [
+      { "term": "feature spec", "meaning": "The brief document describing what to build before building - purpose, features, acceptance criteria, non-goals." },
+      { "term": "scope discipline", "meaning": "Cutting features to protect quality gates - deciding what NOT to build." },
+      { "term": "smoke test", "meaning": "A quick post-deploy pass over critical flows proving the deployment breathes." },
+      { "term": "demo account", "meaning": "A throwaway seeded account letting outsiders try the app safely." }
+    ],
+    "concepts": [
+      {
+        "name": "The brief comes first - always",
+        "explanation": "You wrote a briefing document in Level 0; now it carries real weight. Features, acceptance criteria and non-goals agreed BEFORE code means every later argument is settled by pointing at the doc, not by renegotiating mid-build with an eager agent."
+      },
+      {
+        "name": "Quality gates outrank features",
+        "explanation": "When schedule pressure meets quality gates, features lose. That ordering - suite green, guards audited, deploy verified - is what separates professional shipping from hope-driven deployment. A smaller shipped thing that works beats a bigger broken thing."
+      }
+    ],
+    "explanations": [
+      {
+        "title": "Composition is the exam",
+        "body": "Nothing in this project is new: servers, schemas, validation, authN, authZ, tests, deploys - every ingredient exists in your earlier builds. What IS new is holding all of them in one coherent specification and verifying them as a system. That integration burden is the actual skill being certified."
+      },
+      {
+        "title": "Scope cuts are wins",
+        "body": "Due dates, notifications and comments all sound vital until the suite is red and guards are unaudited. Cutting them - visibly, in writing, as scope decisions - IS the senior move this module teaches."
+      }
+    ],
+    "examples": [
+      {
+        "title": "A right-sized v1",
+        "description": "Workspaces with two roles; tasks with title, assignee and three statuses; membership managed by owners. Everything else - labels, search, activity feeds - explicitly listed as non-goals. That fits in days and ships solid."
+      },
+      {
+        "title": "Demo accounts done right",
+        "description": "Seed demo-owner@ and demo-member@ accounts with obviously fake data and throwaway passwords, documented in the README. Outsiders explore freely; nothing real is at risk. Never seed real-looking personal data for demos."
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Letting the agent talk you into extra features mid-build.",
+        "fix": "New ideas go on a parking-lot list in the brief. v1 ships the agreed slice; the parking lot waits for v2."
+      },
+      {
+        "mistake": "Deploying with the suite red because 'the feature works locally'.",
+        "fix": "Red suite equals no deploy. Fix, revert or cut - those are the only doors out."
+      }
+    ],
+    "agentGuidance": "Structure the whole engagement as phases mirroring your skills: brief approval, schema and permission matrix approval, API skeleton, authN+authZ, test suite green, deploy rehearsal, production smoke. Demand a short completion report per phase against ITS exit criteria - you are running the loop you learned, at project scale.",
+    "project": {
+      "slug": "team-task-manager",
+      "title": "Team Task Manager, Shipped",
+      "brief": "The Level 2 capstone: a deployed multi-user task manager - workspaces with owner/member roles, assignable tasks with a status flow - guarded, tested, verified in production, with demo accounts for visitors.",
+      "requirements": [
+        "Brief document approved BEFORE implementation (purpose, features, acceptance criteria, explicit non-goals)",
+        "Workspaces: owners manage members; members act only within their workspaces",
+        "Tasks: title, optional description, assignee among members, status flow todo-doing-done",
+        "Full security stack active: hashed passwords, session cookies, permission matrix, whitelist validation, uniform errors",
+        "Test suite (10+) green pre-deploy covering auth journey, role boundaries and task flows",
+        "Deployed publicly with two documented demo accounts and post-deploy smoke test executed",
+        "Rollback rehearsed once on the real deployment"
+      ],
+      "agentContext": "Run this build as phased delivery with me approving gates: phase 1 the brief (challenge my scope, propose cuts), phase 2 schema plus permission matrix, phase 3 API skeleton with validation, phase 4 authN/authZ with guards, phase 5 tests-first until green, phase 6 deploy rehearsal plus production smoke. Hold ME to the gates too - if I skip one, refuse to proceed. Non-goals I am declaring upfront: no comments, no notifications, no due dates, no search."
+    },
+    "definitionOfDone": {
+      "functional": [
+        "Approved brief exists and final build matches it - deviations documented as decisions",
+        "Owner can invite/remove members; members see only their workspaces' tasks",
+        "Task lifecycle works: create, assign to member, move through statuses, delete",
+        "Cross-workspace access attempts all fail with proper 403s"
+      ],
+      "architecture": [
+        "Permission matrix in README matches implemented guards one-to-one",
+        "Store queries scope by workspace and user throughout - zero post-fetch permission checks"
+      ],
+      "security": [
+        "Complete L2 stack verified: salted hashes, httpOnly sessions, generic auth errors, whitelist validation, error envelope, no secret leakage in logs",
+        "Rate limiting present on login; demo accounts carry throwaway credentials only",
+        "No real personal data anywhere - seeds are obviously synthetic"
+      ],
+      "testing": [
+        "Suite of ten-plus tests green immediately before deploy",
+        "Post-deploy smoke script executed against production: register-demo, login-demo, task-flow, cross-role denial",
+        "Rollback rehearsal completed on the real deployment and documented"
+      ],
+      "production": [
+        "Live URL plus demo-account instructions in README",
+        "Brief, permission matrix and smoke results committed alongside the code"
+      ]
+    },
+    "verificationPrompt": "Conduct the final acceptance review of my Team Task Manager as the release gatekeeper. Work through: (1) does the shipped build match the approved brief - name any undocumented deviation, (2) execute the full security stack checklist yourself (hashes, cookies, generic errors, validation, envelope, log hygiene), (3) run the test suite and the production smoke script, reporting results honestly, (4) attempt three cross-role exploits of your own invention and report outcomes, (5) verify demo accounts work as documented and leak nothing real. Finish with a SHIP or DO-NOT-SHIP verdict and, if the latter, the exact blocking list.",
+    "reviewQuestions": [
+      "Which feature did you CUT, and how did you document that decision?",
+      "Replay your six build phases and the gate you enforced at each one.",
+      "What would you do differently if this were ten workspaces instead of two users?"
+    ],
+    "capabilities": [
+      "Deliver a complete multi-user product through gated phases",
+      "Hold scope discipline under an eager agent's enthusiasm",
+      "Gate releases on evidence - suites, smokes and audits - not vibes"
+    ],
+    "nextModule": null
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "slug": "level-0-foundations",
+    "order": 0,
+    "name": "Foundations",
+    "tagline": "I have an idea but don't know how to build it.",
+    "description": "The mental model everything else builds on: what software actually is, how projects and files are organized, how to work a terminal, how git remembers history, and how AI coding agents fit in as your implementation partner.",
+    "status": "live",
+    "outcome": "I can set up a project folder, use git through an AI coding agent, and describe what I want built in words the agent can act on."
+  },
+  {
+    "slug": "level-1-first-apps",
+    "order": 1,
+    "name": "First Apps",
+    "tagline": "AI can build a simple app for me.",
+    "description": "Build complete simple applications: interfaces made of components, state that changes over time, forms, APIs, databases, CRUD operations, and putting the result on the internet with basic deployment.",
+    "status": "live",
+    "outcome": "I can direct an AI agent to build a working application from my idea, run it locally, and deploy it where other people can use it."
+  },
+  {
+    "slug": "level-2-real-apps",
+    "order": 2,
+    "name": "Real Apps",
+    "tagline": "I can give AI structured requirements and review what it builds.",
+    "description": "Multi-user applications: authentication, authorization, relational databases, validation, automated testing, error handling, logging, roles and permissions - plus the review discipline to verify what the agent built before you trust it.",
+    "status": "live",
+    "outcome": "I can specify, delegate, review and verify a real multi-user application using a Definition of Done and independent AI-agent verification."
+  },
+  {
+    "slug": "level-3-production",
+    "order": 3,
+    "name": "Production",
+    "tagline": "I can make AI build secure production applications.",
+    "description": "Everything a real product needs under load and with real money: payments, webhooks, background jobs, queues, caching, rate limiting, database indexing, observability, CI/CD, security hardening and failure handling.",
+    "status": "roadmap",
+    "outcome": "I can understand and direct the engineering decisions required for a production application."
+  },
+  {
+    "slug": "level-4-scale",
+    "order": 4,
+    "name": "Scale & Systems",
+    "tagline": "I can reason about scalability, reliability and architecture.",
+    "description": "Complex systems: distributed systems, event-driven architecture, message queues, workers, idempotency, retries, eventual consistency, replication, load balancing, horizontal scaling, fault tolerance and disaster recovery.",
+    "status": "roadmap",
+    "outcome": "I can use an AI agent to build and reason about complex production systems."
+  },
+  {
+    "slug": "level-5-ai-native",
+    "order": 5,
+    "name": "AI-Native Apps",
+    "tagline": "I can build serious AI-powered products.",
+    "description": "Production AI applications: LLMs, embeddings, vector databases, RAG, tool calling, agents, context management, streaming, evaluation, guardrails, prompt injection defense, model costs, latency and AI observability.",
+    "status": "roadmap",
+    "outcome": "I can build production-grade AI-powered products end to end with AI coding agents."
+  }
+]
