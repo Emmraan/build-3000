@@ -1,6 +1,6 @@
 {
   "name": "build-3000",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "private": true,
   "description": "The essential concepts for building software with AI coding agents.",
   "license": "MIT",

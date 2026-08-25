@@ -1,3 +1,10 @@
+# 1.0.0 (2026-08-25)
+
+
+### Features
+
+* build-3000 - open-source curriculum platform for directing AI coding agents ([d2e06d1](https://github.com/Emmraan/build-3000/commit/d2e06d12aa41033ca9031b968161b1b0632af356))
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
