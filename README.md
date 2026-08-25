@@ -69,9 +69,9 @@ Levels:
 | 0     | Foundations   | Live    | "I have an idea but don't know how to build it."     |
 | 1     | First Apps    | Live    | "AI can build a simple app for me."                  |
 | 2     | Real Apps     | Live    | "I can give AI structured requirements."             |
-| 3     | Production    | Roadmap | "I can make AI build secure production applications."|
-| 4     | Scale & Systems | Roadmap | "I can reason about scalability and reliability."  |
-| 5     | AI-Native Apps | Roadmap | "I can build serious AI-powered products."         |
+| 3     | Production    | Live    | "I can make AI build secure production applications."|
+| 4     | Scale & Systems | Live  | "I can reason about scalability and reliability."    |
+| 5     | AI-Native Apps | Live   | "I can build serious AI-powered products."           |
 
 ## Data model
 

@@ -6,7 +6,7 @@ export function MistakeCallout({
   mistake: Module["commonMistakes"][number];
 }) {
   return (
-    <div className="rounded-lg border border-border bg-card p-5">
+    <div className="rounded-lg border border-border bg-card p-5 transition-shadow duration-200 hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
       <p className="text-xs font-medium uppercase tracking-wider text-destructive">
         Common mistake
       </p>

@@ -87,6 +87,28 @@ describe("sortInCurriculumOrder", () => {
       "authorization-and-roles",
       "testing-your-app",
       "ship-team-task-manager",
+      "caching-layers",
+      "rate-limiting-and-abuse",
+      "database-indexing-performance",
+      "background-jobs-and-queues",
+      "payments-integration",
+      "observability-foundation",
+      "ci-cd-pipelines",
+      "failure-handling",
+      "distributed-systems-thinking",
+      "event-driven-architecture",
+      "idempotency-and-retries",
+      "eventual-consistency",
+      "replication-and-sharding",
+      "load-balancing-horizontal-scaling",
+      "fault-tolerance-disaster-recovery",
+      "llm-fundamentals",
+      "structured-prompts-and-output",
+      "embeddings-and-vector-search",
+      "rag-applications",
+      "tool-calling-and-agents",
+      "ai-security-and-evaluation",
+      "ship-ai-native-product",
     ]);
   });
 });
@@ -107,6 +129,8 @@ describe("filterModules", () => {
     expect(result.map((m) => m.slug)).toEqual([
       "authentication",
       "authorization-and-roles",
+      "rate-limiting-and-abuse",
+      "ai-security-and-evaluation",
     ]);
   });
 
@@ -120,7 +144,7 @@ describe("filterModules", () => {
   });
 
   it("returns everything for empty state", () => {
-    expect(filterModules(modules, {}, levels)).toHaveLength(18);
+    expect(filterModules(modules, {}, levels)).toHaveLength(40);
   });
 });
 
@@ -128,6 +152,7 @@ describe("presentDomains", () => {
   it("lists distinct domains alphabetically", () => {
     const domains = presentDomains(modules);
     expect(domains).toEqual([
+      "ai",
       "backend",
       "databases",
       "devops",

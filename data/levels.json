@@ -32,7 +32,7 @@
     "name": "Production",
     "tagline": "I can make AI build secure production applications.",
     "description": "Everything a real product needs under load and with real money: payments, webhooks, background jobs, queues, caching, rate limiting, database indexing, observability, CI/CD, security hardening and failure handling.",
-    "status": "roadmap",
+    "status": "live",
     "outcome": "I can understand and direct the engineering decisions required for a production application."
   },
   {
@@ -41,7 +41,7 @@
     "name": "Scale & Systems",
     "tagline": "I can reason about scalability, reliability and architecture.",
     "description": "Complex systems: distributed systems, event-driven architecture, message queues, workers, idempotency, retries, eventual consistency, replication, load balancing, horizontal scaling, fault tolerance and disaster recovery.",
-    "status": "roadmap",
+    "status": "live",
     "outcome": "I can use an AI agent to build and reason about complex production systems."
   },
   {
@@ -50,7 +50,7 @@
     "name": "AI-Native Apps",
     "tagline": "I can build serious AI-powered products.",
     "description": "Production AI applications: LLMs, embeddings, vector databases, RAG, tool calling, agents, context management, streaming, evaluation, guardrails, prompt injection defense, model costs, latency and AI observability.",
-    "status": "roadmap",
+    "status": "live",
     "outcome": "I can build production-grade AI-powered products end to end with AI coding agents."
   }
 ]

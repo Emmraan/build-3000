@@ -1,4 +1,5 @@
 import { LevelCard } from "@/components/ui/LevelCard";
+import { Reveal } from "@/components/ui/Reveal";
 import { getLiveLevels, getRoadmapLevels } from "@/lib/data";
 
 export function LevelGrid() {
@@ -14,16 +15,15 @@ export function LevelGrid() {
         The ladder
       </h2>
       <p className="mt-2 max-w-2xl leading-relaxed text-muted-foreground">
-        Six levels from first idea to production AI applications. Three are
-        live today; the rest are on the public roadmap.
+        Six levels from first idea to production AI applications. All six are
+        live today - the full ladder, foundations to AI-native.
       </p>
 
       <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {live.map((level) => (
-          <LevelCard key={level.slug} level={level} />
-        ))}
-        {roadmap.map((level) => (
-          <LevelCard key={level.slug} level={level} />
+        {[...live, ...roadmap].map((level, index) => (
+          <Reveal key={level.slug} delay={index * 80}>
+            <LevelCard level={level} />
+          </Reveal>
         ))}
       </div>
     </section>

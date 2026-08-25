@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Reveal } from "@/components/ui/Reveal";
 
 export function VerificationModel() {
   return (
@@ -7,7 +8,8 @@ export function VerificationModel() {
       className="mx-auto max-w-6xl px-4 py-20 sm:px-6"
     >
       <div className="grid items-start gap-10 lg:grid-cols-2">
-        <div>
+        <Reveal>
+          <div>
           <h2
             id="verification-heading"
             className="font-display text-3xl tracking-tight text-foreground"
@@ -31,9 +33,11 @@ export function VerificationModel() {
           >
             See a live module &rarr;
           </Link>
-        </div>
+          </div>
+        </Reveal>
 
-        <div className="rounded-lg border border-border bg-card p-6">
+        <Reveal delay={80}>
+          <div className="rounded-lg border border-border bg-card p-6">
           <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
             The dual-check, in practice
           </p>
@@ -60,7 +64,8 @@ export function VerificationModel() {
               The disagreement is the lesson.
             </p>
           </div>
-        </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

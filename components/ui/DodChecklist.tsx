@@ -116,7 +116,9 @@ export function DodChecklist({
                         type="checkbox"
                         checked={isChecked}
                         onChange={() => toggle(key)}
-                        className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer appearance-none rounded-sm border border-input bg-card checked:border-accent checked:bg-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                        className={`mt-0.5 h-4 w-4 shrink-0 cursor-pointer appearance-none rounded-sm border border-input bg-card checked:border-accent checked:bg-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring ${
+                          isChecked ? "animate-settle" : ""
+                        }`}
                       />
                       <span
                         className={

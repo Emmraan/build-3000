@@ -148,3 +148,55 @@
     transparent 70%
   );
 }
+
+/* ---------------------------------------------------------------------------
+   Motion - quiet life only. Every effect animates transform/opacity, runs
+   150-600ms, and is skipped entirely for prefers-reduced-motion users.
+--------------------------------------------------------------------------- */
+
+/* Scroll-entry reveal (see components/ui/Reveal.tsx). Hidden state applies
+   only when JS is present AND motion is allowed; final state is instant
+   otherwise. */
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal:not(.reveal-shown) {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  .js .reveal {
+    transition:
+      opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+/* Tiny settle pulse when a DoD checklist item becomes newly checked. */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes settle {
+    0% {
+      transform: scale(0.85);
+    }
+    60% {
+      transform: scale(1.08);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  .animate-settle {
+    animation: settle 280ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+/* Progress bar grows from zero on first view. Width holds the true size so
+   no-JS and reduced-motion renders show the final state immediately; the
+   JS-gated transform supplies the entrance animation. */
+@media (prefers-reduced-motion: no-preference) {
+  .js .progress-fill {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  .js .progress-fill.progress-fill-shown {
+    transform: scaleX(1);
+    transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}

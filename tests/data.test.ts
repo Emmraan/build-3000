@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import {
   getCapstonePhases,
   getGlossary,
@@ -137,17 +137,16 @@ describe("data loaders (placeholder dataset)", () => {
     expect(levels.map((l) => l.order)).toEqual([0, 1, 2, 3, 4, 5]);
   });
 
-  it("splits live vs roadmap levels for v1 scope", () => {
+  it("splits live vs roadmap levels - all six live", () => {
     expect(getLiveLevels().map((l) => l.slug)).toEqual([
       "level-0-foundations",
       "level-1-first-apps",
       "level-2-real-apps",
-    ]);
-    expect(getRoadmapLevels().map((l) => l.slug)).toEqual([
       "level-3-production",
       "level-4-scale",
       "level-5-ai-native",
     ]);
+    expect(getRoadmapLevels()).toEqual([]);
   });
 
   it("returns L0 modules in curriculum order", () => {
@@ -173,6 +172,59 @@ describe("data loaders (placeholder dataset)", () => {
     ]);
   });
 
+  it("returns L2 modules in curriculum order", () => {
+    const l2 = getModulesForLevel("level-2-real-apps");
+    expect(l2.map((m) => m.slug)).toEqual([
+      "servers-and-backends",
+      "relational-data-modeling",
+      "server-side-trust",
+      "authentication",
+      "authorization-and-roles",
+      "testing-your-app",
+      "ship-team-task-manager",
+    ]);
+  });
+
+  it("returns L3 modules in curriculum order", () => {
+    const l3 = getModulesForLevel("level-3-production");
+    expect(l3.map((m) => m.slug)).toEqual([
+      "caching-layers",
+      "rate-limiting-and-abuse",
+      "database-indexing-performance",
+      "background-jobs-and-queues",
+      "payments-integration",
+      "observability-foundation",
+      "ci-cd-pipelines",
+      "failure-handling",
+    ]);
+  });
+
+  it("returns L4 modules in curriculum order", () => {
+    const l4 = getModulesForLevel("level-4-scale");
+    expect(l4.map((m) => m.slug)).toEqual([
+      "distributed-systems-thinking",
+      "event-driven-architecture",
+      "idempotency-and-retries",
+      "eventual-consistency",
+      "replication-and-sharding",
+      "load-balancing-horizontal-scaling",
+      "fault-tolerance-disaster-recovery",
+    ]);
+  });
+
+  it("returns L5 modules in curriculum order", () => {
+    const l5 = getModulesForLevel("level-5-ai-native");
+    expect(l5.map((m) => m.slug)).toEqual([
+      "llm-fundamentals",
+      "structured-prompts-and-output",
+      "embeddings-and-vector-search",
+      "rag-applications",
+      "tool-calling-and-agents",
+      "ai-security-and-evaluation",
+      "ship-ai-native-product",
+    ]);
+  });
+
   it("resolves module lookups and cross-level chains", () => {
     const first = getModuleBySlug("what-is-software");
     expect(first).toBeDefined();
@@ -183,14 +235,58 @@ describe("data loaders (placeholder dataset)", () => {
     expect(getModuleBySlug("first-deployment")?.nextModule).toBe(
       "servers-and-backends",
     );
-    // L2 finale terminates the chain
-    expect(getModuleBySlug("ship-team-task-manager")?.nextModule).toBeNull();
+    // L2 finale hands off to L3's first module
+    expect(getModuleBySlug("ship-team-task-manager")?.nextModule).toBe(
+      "caching-layers",
+    );
+    // L3 finale hands off to L4's first module
+    expect(getModuleBySlug("failure-handling")?.nextModule).toBe(
+      "distributed-systems-thinking",
+    );
+    // L4 finale hands off to L5's first module
+    expect(getModuleBySlug("fault-tolerance-disaster-recovery")?.nextModule).toBe(
+      "llm-fundamentals",
+    );
+    // The full ladder ends with the AI-native capstone
+    expect(getModuleBySlug("ship-ai-native-product")?.nextModule).toBeNull();
   });
 
   it("keeps roadmap levels free of modules", () => {
     for (const level of getRoadmapLevels()) {
       expect(getModulesForLevel(level.slug)).toEqual([]);
     }
+  });
+
+  it("throws a named error when modules.json fails schema validation", async () => {
+    vi.resetModules();
+    vi.doMock("../data/modules.json", () => ({
+      default: [{ slug: "BROKEN SLUG" }],
+    }));
+    const { getModules } = await import("../lib/data");
+    expect(() => getModules()).toThrow(/modules\.json failed schema validation/);
+    vi.doUnmock("../data/modules.json");
+  });
+
+  it("throws a named error when levels.json fails schema validation", async () => {
+    vi.resetModules();
+    vi.doMock("../data/levels.json", () => ({
+      default: [{ slug: "Bad Level", order: 99 }],
+    }));
+    const { getLevels } = await import("../lib/data");
+    expect(() => getLevels()).toThrow(/levels\.json failed schema validation/);
+    vi.doUnmock("../data/levels.json");
+  });
+
+  it("throws a named error when capstone.json fails schema validation", async () => {
+    vi.resetModules();
+    vi.doMock("../data/capstone.json", () => ({
+      default: [{ slug: "Bad Phase" }],
+    }));
+    const { getCapstonePhases } = await import("../lib/data");
+    expect(() => getCapstonePhases()).toThrow(
+      /capstone\.json failed schema validation/,
+    );
+    vi.doUnmock("../data/capstone.json");
   });
 });
 
@@ -218,9 +314,9 @@ describe("capstone framework", () => {
 });
 
 describe("glossary aggregation", () => {
-  it("collects vocabulary from live modules only, sorted alphabetically", () => {
+  it("collects vocabulary from all live levels - the full ladder", () => {
     const glossary = getGlossary();
-    expect(glossary.length).toBeGreaterThan(50);
+    expect(glossary.length).toBeGreaterThan(150);
     const sorted = [...glossary].sort((a, b) =>
       a.term.localeCompare(b.term),
     );

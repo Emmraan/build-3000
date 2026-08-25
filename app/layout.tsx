@@ -55,6 +55,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} flex min-h-screen flex-col antialiased`}
       >
+        {/* Marks JS availability before first paint so CSS-gated reveals only
+            hide content when they can also reveal it. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

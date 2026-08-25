@@ -10,6 +10,7 @@ import {
   CapabilityList,
   ReviewQuestions,
 } from "@/components/ui/ReviewQuestions";
+import { Reveal } from "@/components/ui/Reveal";
 import { VerificationPromptBox } from "@/components/ui/VerificationPromptBox";
 import { VocabularyList } from "@/components/ui/VocabularyList";
 import {
@@ -104,9 +105,9 @@ export default async function ModulePage({ params }: PageProps) {
         <p className="mt-1 text-sm text-muted-foreground">
           The words to use when directing your agent.
         </p>
-        <div className="mt-5">
+        <Reveal className="mt-5">
           <VocabularyList vocabulary={entry.vocabulary} />
-        </div>
+        </Reveal>
       </section>
 
       <div className="mt-14">
@@ -120,9 +121,9 @@ export default async function ModulePage({ params }: PageProps) {
         <p className="mt-1 text-sm text-muted-foreground">
           The module&rsquo;s real project. Your agent builds; you direct and inspect.
         </p>
-        <div className="mt-5">
+        <Reveal className="mt-5">
           <ProjectBriefCard project={entry.project} />
-        </div>
+        </Reveal>
       </section>
 
       <section aria-labelledby="verify-heading" className="mt-16 scroll-mt-20">
@@ -133,13 +134,13 @@ export default async function ModulePage({ params }: PageProps) {
           Check every item yourself first. Then hand your agent the prompt and
           compare verdicts.
         </p>
-        <div className="mt-5 grid gap-6 lg:grid-cols-2">
+        <Reveal className="mt-5 grid gap-6 lg:grid-cols-2">
           <DodChecklist moduleSlug={entry.slug} dod={entry.definitionOfDone} />
           <VerificationPromptBox
             moduleTitle={entry.title}
             prompt={entry.verificationPrompt}
           />
-        </div>
+        </Reveal>
       </section>
 
       <section aria-labelledby="review-heading" className="mt-16 scroll-mt-20">
@@ -149,9 +150,9 @@ export default async function ModulePage({ params }: PageProps) {
         <p className="mt-1 text-sm text-muted-foreground">
           Answer out loud. If you cannot, revisit before moving on.
         </p>
-        <div className="mt-5">
+        <Reveal className="mt-5">
           <ReviewQuestions questions={entry.reviewQuestions} />
-        </div>
+        </Reveal>
       </section>
 
       <section aria-labelledby="capable-heading" className="mt-16 scroll-mt-20">

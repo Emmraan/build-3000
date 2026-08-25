@@ -22,8 +22,14 @@ export function ModuleCard({ module }: { module: Module }) {
       <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
         {module.summary}
       </p>
-      <p className="mt-3 text-xs font-medium uppercase tracking-wider text-accent">
+      <p className="mt-3 flex items-center gap-1 text-xs font-medium uppercase tracking-wider text-accent">
         Start module
+        <span
+          aria-hidden="true"
+          className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-1"
+        >
+          &rarr;
+        </span>
       </p>
     </Link>
   );

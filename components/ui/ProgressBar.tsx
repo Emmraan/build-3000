@@ -1,3 +1,6 @@
+"use client";
+
+import { useInViewOnce } from "@/lib/use-in-view-once";
 import { cn } from "@/lib/cn";
 
 export function ProgressBar({
@@ -12,6 +15,8 @@ export function ProgressBar({
   className?: string;
 }) {
   const percent = max > 0 ? Math.round((value / max) * 100) : 0;
+  const { ref, inView } = useInViewOnce<HTMLDivElement>();
+
   return (
     <div className={className}>
       {label && (
@@ -23,6 +28,7 @@ export function ProgressBar({
         </div>
       )}
       <div
+        ref={ref}
         role="progressbar"
         aria-valuenow={value}
         aria-valuemin={0}
@@ -30,9 +36,15 @@ export function ProgressBar({
         aria-label={label}
         className="h-1.5 overflow-hidden rounded-full bg-secondary"
       >
+        {/* Width carries the true size so no-JS/reduced-motion renders show
+            the final state; the .js transform rules animate its entrance
+            from zero on first view (see globals.css). */}
         <div
-          className="h-full rounded-full bg-accent transition-[width] duration-300"
           style={{ width: `${percent}%` }}
+          className={cn(
+            "progress-fill h-full rounded-full bg-accent",
+            inView && "progress-fill-shown",
+          )}
         />
       </div>
     </div>

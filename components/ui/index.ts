@@ -15,3 +15,4 @@ export { ReviewQuestions, CapabilityList } from "./ReviewQuestions";
 export { ProgressBar, SectionHeading } from "./ProgressBar";
 export { DodChecklist } from "./DodChecklist";
 export { VerificationPromptBox } from "./VerificationPromptBox";
+export { Reveal } from "./Reveal";

@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/ui/Reveal";
+
 const LOOP = [
   {
     step: "Learn",
@@ -42,17 +44,18 @@ export function LearningLoop() {
 
         <ol className="mt-10 grid gap-4 md:grid-cols-5">
           {LOOP.map((item, index) => (
-            <li
-              key={item.step}
-              className="rounded-lg border border-border bg-card p-5"
-            >
-              <p className="font-mono text-xs uppercase tracking-wider text-accent">
-                {String(index + 1).padStart(2, "0")}
-              </p>
-              <h3 className="mt-2 font-medium text-foreground">{item.step}</h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-                {item.body}
-              </p>
+            <li key={item.step} className="contents">
+              <Reveal delay={index * 80}>
+                <div className="h-full rounded-lg border border-border bg-card p-5">
+                  <p className="font-mono text-xs uppercase tracking-wider text-accent">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="mt-2 font-medium text-foreground">{item.step}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                    {item.body}
+                  </p>
+                </div>
+              </Reveal>
             </li>
           ))}
         </ol>

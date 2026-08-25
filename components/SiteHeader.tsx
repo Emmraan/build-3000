@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MobileNav } from "@/components/MobileNav";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function SiteHeader() {
@@ -12,29 +13,34 @@ export function SiteHeader() {
           build<span className="text-accent">-</span>3000
         </Link>
 
-        <nav aria-label="Main" className="flex items-center gap-5">
-          <Link
-            href="/curriculum"
-            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Curriculum
-          </Link>
-          <Link
-            href="/progress"
-            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Progress
-          </Link>
-          <a
-            href="https://github.com/Emmraan/build-3000"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden text-sm text-muted-foreground transition-colors hover:text-foreground sm:block"
-          >
-            GitHub
-          </a>
+        <div className="flex items-center gap-3 sm:gap-5">
+          {/* Desktop navigation */}
+          <nav aria-label="Main" className="hidden items-center gap-5 sm:flex">
+            <Link
+              href="/curriculum"
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Curriculum
+            </Link>
+            <Link
+              href="/progress"
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Progress
+            </Link>
+            <a
+              href="https://github.com/Emmraan/build-3000"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              GitHub
+            </a>
+          </nav>
           <ThemeToggle />
-        </nav>
+          {/* Mobile menu island (below sm only) */}
+          <MobileNav />
+        </div>
       </div>
     </header>
   );
